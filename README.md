@@ -39,6 +39,8 @@ The automated metrics are to be provided under the following folder structure fo
 
 /KSIs/summary-KSI-ID.json
 
+Where ID represents each of the KSIs (eg. CNA, IAM, SC, MLA, etc.)
+
 ## 3PAO Audit of the KSI Methodology and Reported Results
 The assessment tasks and methods for the 3PAO are provided for each KSI "aggregate" metric, as well as the supporting evidence metrics. These will be made publicly available in this repository under the following folder structure:
 
