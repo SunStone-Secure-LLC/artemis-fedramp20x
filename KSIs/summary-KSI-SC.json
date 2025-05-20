@@ -1,0 +1,42 @@
+[
+  {
+    "target_id": "ksi-sc-m1-objective-1",
+    "title": "Objective for KSI-SC-M1: Configuration Hardening and Review",
+    "status": "not-satisfied"
+  },
+  {
+    "target_id": "ksi-sc-m2-objective-1",
+    "title": "Objective for KSI-SC-M2: Network Traffic Encryption Coverage",
+    "status": "not-satisfied"
+  },
+  {
+    "target_id": "ksi-sc-m3-objective-1",
+    "title": "Objective for KSI-SC-M3: Data-at-Rest Encryption",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "ksi-sc-m4-objective-1",
+    "title": "Objective for KSI-SC-M4: Centralized Configuration Management Adoption",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "ksi-sc-m5-objective-1",
+    "title": "Objective for KSI-SC-M5: Cryptographic Integrity Enforcement",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "ksi-sc-m6-objective-1",
+    "title": "Objective for KSI-SC-M6: Key Rotation Compliance",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "ksi-sc-m7-objective-1",
+    "title": "Objective for KSI-SC-M7: Risk-Informed Patch Management Effectiveness",
+    "status": "not-satisfied"
+  },
+  {
+    "target_id": "ksi-sc-objective-1",
+    "title": "Overall Objective for KSI-SC: Service Configuration",
+    "status": "not-satisfied"
+  }
+]
