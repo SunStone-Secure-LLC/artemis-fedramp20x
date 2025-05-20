@@ -37,6 +37,8 @@ The automated metrics are to be provided under the following folder structure fo
 
 /KSIs/system-assessment-result-KSI-ID.json
 
+/KSIs/summary-KSI-ID.json
+
 ## 3PAO Audit of the KSI Methodology and Reported Results
 The assessment tasks and methods for the 3PAO are provided for each KSI "aggregate" metric, as well as the supporting evidence metrics. These will be made publicly available in this repository under the following folder structure:
 
@@ -256,6 +258,8 @@ As the KSI "SAR" is a validated OSCAL 1.1.3 Assessment Result file - the reader 
 ```
 
 The Github action will digitally sign each KSI "SAR". At a future date we may provide a container image that includes the KSI "SAR" and code to validate the signature and also visualize the KSI "SAR" for convenience.
+
+A summary shorter non-OSCAL JSON may also be produced - see the utils/ folder for an example notebook to generate this.
 
 # 3PAO Review
 During this DRAFT phase, the CSO has engaged several 3PAOs on how to perform the assessment.  As noted, the CSP will provide a pro forma assessment plans:
