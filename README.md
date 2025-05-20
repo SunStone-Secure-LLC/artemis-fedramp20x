@@ -47,9 +47,9 @@ The assessment tasks and methods for the 3PAO are provided for each KSI "aggrega
 /3PAO/assessment-plan-KSI-ID.json
 
 # Automation and Machine Readable Data Requirements
-The system-assessment-result-KSI-ID.json files are machine-readable OSCAL 1.1.3 Assessment Result files that provide results for each Key Security Indicator Validation. This file includes the overall KSI Validation metric, and associated supporting metrics for the supporting RFC required characteristics. 
+The assessment-result-KSI-ID.json files are machine-readable OSCAL 1.1.3 Assessment Result files that provide results for each Key Security Indicator Validation. This file includes the overall KSI Validation metric, and associated supporting metrics for the supporting RFC required characteristics. An accompanying assessment-plan-KSI-ID.json file will provide additional details of how the metrics are defined and can be executed (at a high level.) We may supplement the files with additional OSCAL 1.1.3 component defs and catalogs and profiles if/when useful. For the simple examples for draft, we omit those for brevity.
 
-A Github action will automatically produce this file in OSCAL 1.1.3 format. Given that the action will run on a trigger when new system-assessment-result-KSI-ID.json files are committed from in-boundary sources, the KSI "SAR" will not be generated "on demand" so much as "continuously".
+A Github action will automatically produce this file in OSCAL 1.1.3 format. Given that the action will run on a trigger when new assessment-result-KSI-ID.json files are committed from in-boundary sources, the KSI "SAR" will not be generated "on demand" so much as "continuously".
 
 As the KSI "SAR" is a validated OSCAL 1.1.3 Assessment Result file - the reader is encouraged to read the official NIST OSCAL 1.1.3 schemas. However, to assist explaining how the KSI "SAR" maps to the KSI elements here is a short example:
 
