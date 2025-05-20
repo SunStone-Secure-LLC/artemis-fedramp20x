@@ -42,19 +42,24 @@ All SecOps use automated playbooks for investigation and remediation. There is n
 Under a Zero Trust model, we always assume breach. As such we are continuously verifying that the API calls in the AWS environment (everything - data flows, processing activities, etc., is an API call) match the expected activity in the environment.  As such we can frame the threats more simply as these simple questions:
 
 _Can we "diff" the expected (API) behavior of the CSO against the continuous stream of API activity?_
+
 _Can we detect "drift" between the expected sources of API activity and the actual sources of API activity?_
 
 From that perspectice - we can model:
-- Is the CSO expected state complete and correct as expressed in code sufficient to achieve breach resilience? Since everything is IaC, we can determine "coverage", and  "fuzz" whether the IaC satisfies all possible inputs and always produces acceptable outputs.
-  - As a secondary "runtime" test - we can continuously attack the system from inside, and from outside.  If any attack is succesful, we can conclude our above static analysis was incomplete in some way so it needs to be revised and improved. Repeat.
--  Once satisfied by that testing, what are the ways that an insider or external threat actor can modify or break the API clients in the CSO, which would change the API activitiy, representing a violation of the tested and "fuzzed" behavior above?
--  This breaks down into these threat vectors:
-  - Can someone authenticate outside of the [IdP and Federated login](https://devici.com/resources/blog/zero-trust-threat-modeling
-)?  Or in any way sidestep the authentication process?
+* Is the CSO expected state complete and correct as expressed in code sufficient to achieve breach resilience? Since everything is IaC, we can determine "coverage", and  "fuzz" whether the IaC satisfies all possible inputs and always produces acceptable outputs.
+  - As a secondary "runtime" test - we can continuously attack the system from inside, and from outside.
+    - If any attack is succesful, we can conclude our above static analysis was incomplete in some way so it needs to be revised and improved. Repeat.
+*  Once satisfied by that testing, what are the ways that an insider or external threat actor can modify or break the API clients in the CSO,
+   which would change the API activitiy, representing a violation of the tested and "fuzzed" behavior above?
+   
+This breaks down into these threat vector buckets:
+  - Can someone authenticate outside of the [IdP and Federated login](https://devici.com/resources/blog/zero-trust-threat-modeling)?
+  - Or in any way sidestep the authentication process?
   - Can someone impersonate a valid identity?
-  - Can someone sidestep the SLSA [CI/CD process](https://slsa.dev/spec/v1.1/threats
-) that realizes the actual CSO components and state from the underlying Iac?
-  - Can an authenticated identity modify the tested/fuzzed Infrastructure Code to delete or disable or in any way modify the components that generate VALID API activity that represents correct and expecte data flows and processing activities?
+  - Can someone sidestep the SLSA [CI/CD process](https://slsa.dev/spec/v1.1/threats) that realizes the actual CSO components
+    and state from the underlying Iac?
+  - Can an authenticated identity modify the tested/fuzzed Infrastructure Code to delete or disable or in any way modify
+    the components that generate VALID API activity that represents correct and expecte data flows and processing activities?
   - Does the IaC rely on external components that can be modified or tampered with?
   - Can someone stealthily hide API calls in the CSO over time to make detection of "drift" harder?
   - Can the CSP itself act maliciously to subvert any/all of the above?
