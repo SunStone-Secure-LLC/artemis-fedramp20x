@@ -1,0 +1,1840 @@
+{
+  "assessment-results": {
+    "uuid": "a7fada6a-0b9c-4d8a-8a9e-9f0d1b2c3d4e",
+    "metadata": {
+      "title": "Assessment Results for KSI-SC: Service Configuration against ACME CSP Inc. CSO (using AWS Landing Zone Accelerator) (Hypothetical)",
+      "last-modified": "2025-05-20T21:45:00Z",
+      "version": "1.0.16-example",
+      "oscal-version": "1.1.3",
+      "roles": [
+        {
+          "id": "assessor",
+          "title": "Assessor (Automated Agent)"
+        },
+        {
+          "id": "provider-contact",
+          "title": "Cloud Service Provider Contact"
+        },
+        {
+          "id": "prepared-by",
+          "title": "Assessment Results Prepared By"
+        }
+      ],
+      "parties": [
+        {
+          "uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+          "type": "organization",
+          "name": "ACME CSP Inc.",
+          "props": [
+            {
+              "name": "assessment-agent",
+              "value": "secops-agent",
+              "ns": "https://acme-csp.com/internal/assessment",
+              "remarks": "Automated assessment agent operated by ACME CSP Inc."
+            }
+          ],
+          "remarks": "Cloud Service Provider using AWS Landing Zone Accelerator for their CSO; assessment performed by their internal SecOps Agent."
+        },
+        {
+          "uuid": "d1e2f3a4-b5c6-7d8e-9f0a-1b2c3d4e5f6g",
+          "type": "organization",
+          "name": "Automated Generation Service",
+          "remarks": "Party responsible for generating this OSCAL document."
+        }
+      ],
+      "responsible-parties": [
+        {
+          "role-id": "assessor",
+          "party-uuids": [
+            "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h"
+          ]
+        },
+        {
+          "role-id": "provider-contact",
+          "party-uuids": [
+            "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h"
+          ]
+        },
+        {
+          "role-id": "prepared-by",
+          "party-uuids": [
+            "d1e2f3a4-b5c6-7d8e-9f0a-1b2c3d4e5f6g"
+          ]
+        }
+      ]
+    },
+    "import-ap": {
+      "href": "#assessment-plan-ksi-sc",
+      "remarks": "Reference to the assessment plan (assessment-plan-KSI-SC.json) that this assessment result is based on. The actual file should be co-located or resolvable."
+    },
+    "local-definitions": {
+      "remarks": "Assessment-specific local definitions. Primary definitions for objectives, methods, and activities are sourced from the imported assessment plan (assessment-plan-KSI-SC.json) and its referenced KSI catalog (catalog-KSI-SC.json). No overriding or additional assessment-level definitions are declared here for this assessment iteration."
+    },
+    "results": [
+      {
+        "uuid": "e9d8c7b6-a5f4-3e2d-1c0b-9a8f7e6d5c4b",
+        "title": "KSI-SC Service Configuration Assessment Findings for ACME CSP Inc. CSO (using AWS LZA)",
+        "description": "This result details the findings from assessing ACME CSP Inc.'s Cloud Service Offering (CSO), which is implemented using the AWS Landing Zone Accelerator (LZA), against the KSI-SC Service Configuration metrics. It includes observations based on automated MEASURE methods and synthetic data representing a hypothetical assessment of ACME CSP Inc.'s CSO capabilities.",
+        "start": "2025-05-19T09:00:00Z",
+        "end": "2025-05-20T17:00:00Z",
+        "local-definitions": {
+          "components": [
+            {
+              "uuid": "b1c2d3e4-f5a6-7890-1b2c-3d4e5f6a7b8c",
+              "type": "system",
+              "title": "ACME CSP Inc. Cloud Service Offering (CSO) based on AWS LZA",
+              "description": "The Cloud Service Offering provided by ACME CSP Inc., which is built upon the AWS Landing Zone Accelerator (LZA). LZA is architected to align with AWS best practices and in conformance with multiple, global compliance frameworks. This assessment pertains to the configuration capabilities of ACME CSP Inc.'s CSO relevant to KSI-SC, as implemented using LZA.",
+              "purpose": "To provide ACME CSP Inc.'s secure and scalable cloud service offering to its customers.",
+              "status": {
+                "state": "operational"
+              },
+              "responsible-roles": [
+                {
+                  "role-id": "provider-contact",
+                  "party-uuids": [
+                    "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h"
+                  ]
+                }
+              ]
+            }
+          ],
+          "inventory-items": [
+            {
+              "uuid": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+              "description": "The overall ACME CSP Inc. Cloud Service Offering deployment, built using the AWS Landing Zone Accelerator solution. This encompasses its core components, configuration capabilities, and management infrastructure relevant to service configuration security.",
+              "props": [
+                {
+                  "name": "asset-type",
+                  "value": "Cloud Foundation Solution"
+                },
+                {
+                  "name": "system-context-ref",
+                  "value": "b1c2d3e4-f5a6-7890-1b2c-3d4e5f6a7b8c"
+                }
+              ],
+              "responsible-parties": [
+                {
+                  "role-id": "provider-contact",
+                  "party-uuids": [
+                    "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h"
+                  ]
+                }
+              ],
+              "implemented-components": [
+                {
+                  "component-uuid": "b1c2d3e4-f5a6-7890-1b2c-3d4e5f6a7b8c",
+                  "remarks": "This inventory item represents ACME CSP Inc.'s assessed CSO, which utilizes AWS LZA."
+                }
+              ]
+            }
+          ],
+          "assessment-assets": {
+            "components": [
+              {
+                "uuid": "comp-scanner-001-ar",
+                "type": "software",
+                "title": "Network Vulnerability Scanner (Result Context)",
+                "description": "Tool used for scanning network traffic and configurations to gather data for this assessment result. Based on 'comp-scanner-001' from the assessment plan.",
+                "status": {
+                  "state": "operational"
+                },
+                "props": [
+                  {
+                    "name": "assessment-plan-ref",
+                    "value": "comp-scanner-001"
+                  }
+                ]
+              },
+              {
+                "uuid": "comp-auditor-001-ar",
+                "type": "software",
+                "title": "Configuration Audit Tool (Result Context)",
+                "description": "Tool used for auditing system and component configurations against baselines to gather data for this assessment result. Based on 'comp-auditor-001' from the assessment plan.",
+                "status": {
+                  "state": "operational"
+                },
+                "props": [
+                  {
+                    "name": "assessment-plan-ref",
+                    "value": "comp-auditor-001"
+                  }
+                ]
+              },
+              {
+                "uuid": "comp-kms-auditor-001-ar",
+                "type": "software",
+                "title": "Key Management System Auditor (Result Context)",
+                "description": "Tool or process used to audit key management and rotation practices to gather data for this assessment result. Based on 'comp-kms-auditor-001' from the assessment plan.",
+                "status": {
+                  "state": "operational"
+                },
+                "props": [
+                  {
+                    "name": "assessment-plan-ref",
+                    "value": "comp-kms-auditor-001"
+                  }
+                ]
+              }
+            ],
+            "assessment-platforms": [
+              {
+                "uuid": "platform-assessor-001-ar",
+                "title": "ACME SecOps Automated Assessment Platform (Result Context)",
+                "props": [
+                  {
+                    "name": "assessment-plan-ref",
+                    "value": "platform-assessor-001"
+                  }
+                ],
+                "uses-components": [
+                  {
+                    "component-uuid": "comp-scanner-001-ar"
+                  },
+                  {
+                    "component-uuid": "comp-auditor-001-ar"
+                  },
+                  {
+                    "component-uuid": "comp-kms-auditor-001-ar"
+                  }
+                ],
+                "remarks": "Represents the automated assessment platform operated by ACME CSP Inc. (via secops-agent) used to generate the data within this result, based on the platform defined in the assessment plan."
+              }
+            ]
+          },
+          "remarks": "Local definitions provide context for the system under assessment and the assets used to perform the assessment for this result. Since a detailed SSP or component definition for the specific LZA deployment was not provided, system descriptions are high-level. Assessment assets are based on those defined in the imported assessment plan."
+        },
+        "reviewed-controls": {
+          "description": "Details the set of controls from the 'KSI-SC: Service Configuration Metrics Catalog' that were reviewed as part of this assessment, based on the imported assessment plan.",
+          "props": [
+            {
+              "name": "source-catalog-uuid",
+              "value": "ef1dcdb0-9ad5-4b70-a104-c05dc24cb682",
+              "remarks": "UUID of the KSI-SC catalog used."
+            },
+            {
+              "name": "source-catalog-title",
+              "value": "KSI-SC: Service Configuration Metrics Catalog with Assessment Measures"
+            }
+          ],
+          "links": [
+            {
+              "href": "#b4a3c2d1-e0f9-8765-4321-0fedcba98765",
+              "rel": "source-catalog",
+              "remarks": "Link to the KSI-SC catalog resource defined in back-matter."
+            },
+            {
+              "href": "#assessment-plan-ksi-sc",
+              "rel": "assessment-plan",
+              "remarks": "Link to the imported assessment plan resource defined in back-matter."
+            }
+          ],
+          "control-selections": [
+            {
+              "description": "Aggregate Key Security Indicator for Service Configuration.",
+              "include-controls": [
+                {
+                  "control-id": "ksi-sc"
+                }
+              ]
+            },
+            {
+              "description": "Specific sub-metrics contributing to the KSI-SC aggregate metric, as detailed in the assessment plan.",
+              "include-controls": [
+                {
+                  "control-id": "ksi-sc-m1"
+                },
+                {
+                  "control-id": "ksi-sc-m2"
+                },
+                {
+                  "control-id": "ksi-sc-m3"
+                },
+                {
+                  "control-id": "ksi-sc-m4"
+                },
+                {
+                  "control-id": "ksi-sc-m5"
+                },
+                {
+                  "control-id": "ksi-sc-m6"
+                },
+                {
+                  "control-id": "ksi-sc-m7"
+                }
+              ]
+            }
+          ],
+          "control-objective-selections": [
+            {
+              "description": "Control objectives are inherently part of each reviewed control as defined in the source catalog and targeted by the assessment methods. Specific objectives are addressed within the observations for each control.",
+              "include-all": {},
+              "remarks": "This signifies that all objectives defined within the parts of the selected controls (ksi-sc, ksi-sc-m1 through ksi-sc-m7) were considered in scope for this assessment."
+            }
+          ],
+          "remarks": "The assessment focused on the 'MEASURE' methods defined for each control part in the KSI-SC catalog. The results for the aggregate 'ksi-sc' control will be derived from the findings of its constituent sub-metrics (m1-m7)."
+        },
+        "observations": [
+          {
+            "uuid": "obs-ksi-sc-aggregate-001",
+            "title": "Observation for Aggregate Metric KSI-SC: Service Configuration",
+            "description": "This observation pertains to the aggregate Key Security Indicator KSI-SC. The overall status and effectiveness of KSI-SC is determined by the collective assessment of its constituent specific metrics (ksi-sc-m1 through ksi-sc-m7). Detailed measurements and evidence for these sub-metrics are provided in their respective observations. A consolidated finding for KSI-SC will summarize these individual results.",
+            "props": [
+              {
+                "name": "observed-control-id",
+                "value": "ksi-sc",
+                "ns": "https://example.com/assessment/control-ref"
+              },
+              {
+                "name": "metric-type",
+                "value": "aggregate-ksi",
+                "ns": "https://example.com/ksi/metrics"
+              }
+            ],
+            "methods": [
+              "ASSESSMENT"
+            ],
+            "types": [
+              "control-objective-review"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  },
+                  {
+                    "type": "assessment-platform",
+                    "actor-uuid": "platform-assessor-001-ar"
+                  }
+                ]
+              }
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+                "type": "inventory-item",
+                "title": "ACME CSP Inc. Cloud Service Offering"
+              }
+            ],
+            "collected": "2025-05-20T16:00:00Z",
+            "remarks": "The final determination for KSI-SC will be made once all sub-metric observations and findings are processed."
+          },
+          {
+            "uuid": "obs-ksi-sc-m1-001",
+            "title": "Observation for Metric KSI-SC-M1: Configuration Hardening and Review",
+            "description": "Assessment of configuration hardening and review practices for production network devices and systems. Measured compliance is 94.0% (188 out of 200 systems). This is slightly below the SLO of 95%.",
+            "props": [
+              {
+                "name": "observed-control-id",
+                "value": "ksi-sc-m1",
+                "ns": "https://example.com/assessment/control-ref"
+              },
+              {
+                "name": "metric-value-ksi-sc-m1",
+                "value": "94.0",
+                "ns": "https://example.com/ksi/metrics/values",
+                "class": "metric-percentage"
+              },
+              {
+                "name": "metric-slo-ksi-sc-m1",
+                "value": "95",
+                "ns": "https://example.com/ksi/metrics/slos",
+                "class": "metric-percentage"
+              }
+            ],
+            "methods": [
+              "MEASURE",
+              "EXAMINE"
+            ],
+            "types": [
+              "metric-value-collection",
+              "control-objective-evidence"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  },
+                  {
+                    "type": "assessment-platform",
+                    "actor-uuid": "platform-assessor-001-ar"
+                  },
+                  {
+                    "type": "tool",
+                    "actor-uuid": "comp-auditor-001-ar",
+                    "props": [
+                      {
+                        "name": "tool-function",
+                        "value": "Configuration Baseline Audit & Change Log Analysis"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+                "type": "inventory-item",
+                "title": "ACME CSP Inc. Production Network Devices and Systems (Sampled/Inventoried)"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "description": "Total number of production network devices and systems in scope for hardening and review assessment.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Denominator (B)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m1-B",
+                    "value": "200",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Data sourced from CMDB and network inventory, verified on 2025-05-19."
+              },
+              {
+                "description": "Number of production network devices and systems found compliant with documented hardening baselines, and for which configuration changes undergo pre-implementation impact analysis and periodic reviews as per policy.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Numerator (A)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m1-A",
+                    "value": "188",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Compliance determined through SCM tool scans, audit of change management records, and review of baseline documentation. 12 systems had either minor deviations from baseline, or impact analysis for a recent change was not fully documented prior to implementation."
+              },
+              {
+                "description": "Metric Calculation: (188 / 200) * 100 = 94.0%",
+                "props": [
+                  {
+                    "name": "derived-metric-value",
+                    "value": "94.0",
+                    "ns": "https://example.com/ksi/metrics/values"
+                  }
+                ]
+              }
+            ],
+            "collected": "2025-05-20T14:00:00Z",
+            "remarks": "The assessment involved automated scans using 'Configuration Audit Tool (Result Context)' and manual review of change records and baseline documentation for a representative sample of systems within the ACME CSP Inc. CSO."
+          },
+          {
+            "uuid": "obs-ksi-sc-m2-001",
+            "title": "Observation for Metric KSI-SC-M2: Network Traffic Encryption Coverage",
+            "description": "Assessment of network traffic encryption for sensitive data segments. Measured compliance is 99.8% (4990 out of 5000 segments/flows). This is slightly below the SLO of 99.9% for sensitive traffic.",
+            "props": [
+              {
+                "name": "observed-control-id",
+                "value": "ksi-sc-m2",
+                "ns": "https://example.com/assessment/control-ref"
+              },
+              {
+                "name": "metric-value-ksi-sc-m2",
+                "value": "99.8",
+                "ns": "https://example.com/ksi/metrics/values",
+                "class": "metric-percentage"
+              },
+              {
+                "name": "metric-slo-ksi-sc-m2",
+                "value": "99.9",
+                "ns": "https://example.com/ksi/metrics/slos",
+                "class": "metric-percentage",
+                "remarks": "SLO for external traffic and traffic with sensitive/federal information."
+              }
+            ],
+            "methods": [
+              "MEASURE",
+              "EXAMINE",
+              "TEST"
+            ],
+            "types": [
+              "metric-value-collection",
+              "control-objective-evidence"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  },
+                  {
+                    "type": "assessment-platform",
+                    "actor-uuid": "platform-assessor-001-ar"
+                  },
+                  {
+                    "type": "tool",
+                    "actor-uuid": "comp-scanner-001-ar",
+                    "props": [
+                      {
+                        "name": "tool-function",
+                        "value": "Network Traffic Analysis & Protocol Inspection"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+                "type": "inventory-item",
+                "title": "ACME CSP Inc. CSO Network Segments Transmitting Sensitive Information"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "description": "Total volume/number of observed network traffic segments/flows requiring cryptographic protection (sensitive data).",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Denominator (B)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m2-B",
+                    "value": "5000",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count",
+                    "remarks": "Represents arbitrary units (e.g., flows, data volume in GB) over the observation period."
+                  }
+                ],
+                "remarks": "Data collected via network monitoring tools over a 24-hour period on 2025-05-19."
+              },
+              {
+                "description": "Volume/number of observed network traffic segments/flows using approved cryptographic mechanisms for confidentiality and integrity.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Numerator (A)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m2-A",
+                    "value": "4990",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Compliance determined by automated traffic analysis. 10 segments/flows were identified using older TLS versions or non-FIPS validated modules for internal administrative interfaces."
+              },
+              {
+                "description": "Metric Calculation: (4990 / 5000) * 100 = 99.8%",
+                "props": [
+                  {
+                    "name": "derived-metric-value",
+                    "value": "99.8",
+                    "ns": "https://example.com/ksi/metrics/values"
+                  }
+                ]
+              }
+            ],
+            "collected": "2025-05-20T14:30:00Z",
+            "remarks": "Network traffic analysis performed using 'Network Vulnerability Scanner (Result Context)' on key ingress/egress points and internal segments handling sensitive data within ACME CSP Inc.'s CSO."
+          },
+          {
+            "uuid": "obs-ksi-sc-m3-001",
+            "title": "Observation for Metric KSI-SC-M3: Data-at-Rest Encryption for Sensitive Information",
+            "description": "Assessment of data-at-rest encryption for data stores and media containing federal or sensitive information. Measured compliance is 100.0% (50 out of 50 data stores/media). This meets the SLO of 100%.",
+            "props": [
+              {
+                "name": "observed-control-id",
+                "value": "ksi-sc-m3",
+                "ns": "https://example.com/assessment/control-ref"
+              },
+              {
+                "name": "metric-value-ksi-sc-m3",
+                "value": "100.0",
+                "ns": "https://example.com/ksi/metrics/values",
+                "class": "metric-percentage"
+              },
+              {
+                "name": "metric-slo-ksi-sc-m3",
+                "value": "100",
+                "ns": "https://example.com/ksi/metrics/slos",
+                "class": "metric-percentage"
+              }
+            ],
+            "methods": [
+              "MEASURE",
+              "EXAMINE"
+            ],
+            "types": [
+              "metric-value-collection",
+              "control-objective-evidence"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  },
+                  {
+                    "type": "assessment-platform",
+                    "actor-uuid": "platform-assessor-001-ar"
+                  },
+                  {
+                    "type": "tool",
+                    "actor-uuid": "comp-auditor-001-ar",
+                    "props": [
+                      {
+                        "name": "tool-function",
+                        "value": "Storage Configuration Audit & KMS Policy Review"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+                "type": "inventory-item",
+                "title": "ACME CSP Inc. CSO Data Stores and Media with Sensitive Information"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "description": "Total number/volume of data stores/media identified as containing federal/sensitive information.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Denominator (B)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m3-B",
+                    "value": "50",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count",
+                    "remarks": "Represents count of distinct data stores (e.g., databases, S3 buckets, EBS volumes)."
+                  }
+                ],
+                "remarks": "Data sourced from data classification inventory and configuration audits, verified on 2025-05-19."
+              },
+              {
+                "description": "Number/Volume of data stores/media containing federal/sensitive information confirmed to be encrypted at rest with approved cryptographic methods.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Numerator (A)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m3-A",
+                    "value": "50",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Compliance determined by automated configuration checks of storage services (e.g., S3 default encryption, RDS encryption status, EBS encryption) and KMS key usage. All identified sensitive data stores were confirmed to be using FIPS-validated AES-256 encryption."
+              },
+              {
+                "description": "Metric Calculation: (50 / 50) * 100 = 100.0%",
+                "props": [
+                  {
+                    "name": "derived-metric-value",
+                    "value": "100.0",
+                    "ns": "https://example.com/ksi/metrics/values"
+                  }
+                ]
+              }
+            ],
+            "collected": "2025-05-20T15:00:00Z",
+            "remarks": "Configuration audits performed using 'Configuration Audit Tool (Result Context)' against all inventoried sensitive data repositories within ACME CSP Inc.'s CSO. Key management practices were also reviewed via 'Key Management System Auditor (Result Context)' to confirm approved mechanisms."
+          },
+          {
+            "uuid": "obs-ksi-sc-m4-001",
+            "title": "Observation for Metric KSI-SC-M4: Centralized Configuration Management Adoption",
+            "description": "Assessment of centralized configuration management adoption for production systems and services. Measured compliance is 96.0% (240 out of 250 systems/services). This meets the SLO of 95%.",
+            "props": [
+              {
+                "name": "observed-control-id",
+                "value": "ksi-sc-m4",
+                "ns": "https://example.com/assessment/control-ref"
+              },
+              {
+                "name": "metric-value-ksi-sc-m4",
+                "value": "96.0",
+                "ns": "https://example.com/ksi/metrics/values",
+                "class": "metric-percentage"
+              },
+              {
+                "name": "metric-slo-ksi-sc-m4",
+                "value": "95",
+                "ns": "https://example.com/ksi/metrics/slos",
+                "class": "metric-percentage"
+              }
+            ],
+            "methods": [
+              "MEASURE",
+              "EXAMINE"
+            ],
+            "types": [
+              "metric-value-collection",
+              "control-objective-evidence"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  },
+                  {
+                    "type": "assessment-platform",
+                    "actor-uuid": "platform-assessor-001-ar"
+                  },
+                  {
+                    "type": "tool",
+                    "actor-uuid": "comp-auditor-001-ar",
+                    "props": [
+                      {
+                        "name": "tool-function",
+                        "value": "CMDB Query & Config Management Tool Audit"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+                "type": "inventory-item",
+                "title": "ACME CSP Inc. CSO Production Systems and Services"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "description": "Total number of production systems/services in scope for centralized configuration management.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Denominator (B)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m4-B",
+                    "value": "250",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Data sourced from CMDB and service catalog, verified on 2025-05-19."
+              },
+              {
+                "description": "Number of production systems/services whose configuration is actively managed by a central system and accurately reflected in a central component inventory.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Numerator (A)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m4-A",
+                    "value": "240",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Compliance determined by querying centralized configuration management tools (e.g., Ansible Tower, Kubernetes API) and cross-referencing with the component inventory. 10 legacy systems are still undergoing migration to full centralized management."
+              },
+              {
+                "description": "Metric Calculation: (240 / 250) * 100 = 96.0%",
+                "props": [
+                  {
+                    "name": "derived-metric-value",
+                    "value": "96.0",
+                    "ns": "https://example.com/ksi/metrics/values"
+                  }
+                ]
+              }
+            ],
+            "collected": "2025-05-20T15:15:00Z",
+            "remarks": "Audit performed using 'Configuration Audit Tool (Result Context)' by querying ACME CSP Inc.'s central CMDB, configuration management systems, and component inventory records."
+          },
+          {
+            "uuid": "obs-ksi-sc-m5-001",
+            "title": "Observation for Metric KSI-SC-M5: Cryptographic Integrity Enforcement",
+            "description": "Assessment of cryptographic integrity enforcement for critical systems and software components. Measured compliance is 98.5% (65 out of 66 critical components). This meets the SLO of 98%.",
+            "props": [
+              {
+                "name": "observed-control-id",
+                "value": "ksi-sc-m5",
+                "ns": "https://example.com/assessment/control-ref"
+              },
+              {
+                "name": "metric-value-ksi-sc-m5",
+                "value": "98.5",
+                "ns": "https://example.com/ksi/metrics/values",
+                "class": "metric-percentage"
+              },
+              {
+                "name": "metric-slo-ksi-sc-m5",
+                "value": "98",
+                "ns": "https://example.com/ksi/metrics/slos",
+                "class": "metric-percentage"
+              }
+            ],
+            "methods": [
+              "MEASURE",
+              "EXAMINE",
+              "TEST"
+            ],
+            "types": [
+              "metric-value-collection",
+              "control-objective-evidence"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  },
+                  {
+                    "type": "assessment-platform",
+                    "actor-uuid": "platform-assessor-001-ar"
+                  },
+                  {
+                    "type": "tool",
+                    "actor-uuid": "comp-auditor-001-ar",
+                    "props": [
+                      {
+                        "name": "tool-function",
+                        "value": "Integrity Monitoring System Audit & Secure Boot Verification"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+                "type": "inventory-item",
+                "title": "ACME CSP Inc. CSO Critical Systems and Software Components"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "description": "Total number of identified critical systems/components.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Denominator (B)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m5-B",
+                    "value": "66",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "List of critical systems/components derived from ACME CSP Inc.'s risk assessment documentation and system inventory, verified on 2025-05-19."
+              },
+              {
+                "description": "Number of critical systems/components with active and validated cryptographic integrity verification mechanisms.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Numerator (A)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m5-A",
+                    "value": "65",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Compliance determined by verifying secure boot configurations, code signing practices for critical software, and active file integrity monitoring (FIM) logs. One recently deployed internal utility server had its FIM agent misconfigured and was not reporting correctly."
+              },
+              {
+                "description": "Metric Calculation: (65 / 66) * 100 = 98.48% (rounded to 98.5%)",
+                "props": [
+                  {
+                    "name": "derived-metric-value",
+                    "value": "98.5",
+                    "ns": "https://example.com/ksi/metrics/values"
+                  }
+                ]
+              }
+            ],
+            "collected": "2025-05-20T15:30:00Z",
+            "remarks": "Assessment performed using 'Configuration Audit Tool (Result Context)' to check system configurations and FIM logs. Test procedures were used to confirm alert generation for simulated integrity violations on a sample of systems."
+          },
+          {
+            "uuid": "obs-ksi-sc-m6-001",
+            "title": "Observation for Metric KSI-SC-M6: Key Rotation Compliance",
+            "description": "Assessment of cryptographic key rotation compliance. Measured compliance is 99.3% (298 out of 300 keys). This meets the SLO of 99%.",
+            "props": [
+              {
+                "name": "observed-control-id",
+                "value": "ksi-sc-m6",
+                "ns": "https://example.com/assessment/control-ref"
+              },
+              {
+                "name": "metric-value-ksi-sc-m6",
+                "value": "99.3",
+                "ns": "https://example.com/ksi/metrics/values",
+                "class": "metric-percentage"
+              },
+              {
+                "name": "metric-slo-ksi-sc-m6",
+                "value": "99",
+                "ns": "https://example.com/ksi/metrics/slos",
+                "class": "metric-percentage"
+              }
+            ],
+            "methods": [
+              "MEASURE",
+              "EXAMINE"
+            ],
+            "types": [
+              "metric-value-collection",
+              "control-objective-evidence"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  },
+                  {
+                    "type": "assessment-platform",
+                    "actor-uuid": "platform-assessor-001-ar"
+                  },
+                  {
+                    "type": "tool",
+                    "actor-uuid": "comp-kms-auditor-001-ar",
+                    "props": [
+                      {
+                        "name": "tool-function",
+                        "value": "KMS Audit & Key Inventory Review"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+                "type": "inventory-item",
+                "title": "ACME CSP Inc. CSO Cryptographic Keys Inventory"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "description": "Total number of cryptographic keys subject to rotation policy and management by an approved capability.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Denominator (B)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m6-B",
+                    "value": "300",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Data sourced from ACME CSP Inc.'s key inventory and KMS logs, verified on 2025-05-19."
+              },
+              {
+                "description": "Number of cryptographic keys managed by an approved, authenticated key management system and rotated in compliance with policy.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Numerator (A)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m6-A",
+                    "value": "298",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Compliance determined by auditing key management system logs and key metadata. Two service-specific keys for an older internal application were found to be slightly overdue for rotation."
+              },
+              {
+                "description": "Metric Calculation: (298 / 300) * 100 = 99.33% (rounded to 99.3%)",
+                "props": [
+                  {
+                    "name": "derived-metric-value",
+                    "value": "99.3",
+                    "ns": "https://example.com/ksi/metrics/values"
+                  }
+                ]
+              }
+            ],
+            "collected": "2025-05-20T15:45:00Z",
+            "remarks": "Audit performed using 'Key Management System Auditor (Result Context)' by reviewing key inventories, KMS configurations, and rotation schedules within ACME CSP Inc.'s CSO."
+          },
+          {
+            "uuid": "obs-ksi-sc-m7-001",
+            "title": "Observation for Metric KSI-SC-M7: Risk-Informed Patch Management Effectiveness",
+            "description": "Assessment of risk-informed patch management effectiveness. Critical vulnerabilities: 98.0% (98 out of 100) patched within 7-day policy (SLO 99%). High vulnerabilities: 96.0% (192 out of 200) patched within 30-day policy (SLO 95%).",
+            "props": [
+              {
+                "name": "observed-control-id",
+                "value": "ksi-sc-m7",
+                "ns": "https://example.com/assessment/control-ref"
+              },
+              {
+                "name": "metric-value-ksi-sc-m7-critical",
+                "value": "98.0",
+                "ns": "https://example.com/ksi/metrics/values",
+                "class": "metric-percentage",
+                "remarks": "Compliance for Critical vulnerabilities"
+              },
+              {
+                "name": "metric-slo-ksi-sc-m7-critical",
+                "value": "99",
+                "ns": "https://example.com/ksi/metrics/slos",
+                "class": "metric-percentage",
+                "remarks": "SLO for Critical vulnerabilities (e.g., within 7 days)"
+              },
+              {
+                "name": "metric-value-ksi-sc-m7-high",
+                "value": "96.0",
+                "ns": "https://example.com/ksi/metrics/values",
+                "class": "metric-percentage",
+                "remarks": "Compliance for High vulnerabilities"
+              },
+              {
+                "name": "metric-slo-ksi-sc-m7-high",
+                "value": "95",
+                "ns": "https://example.com/ksi/metrics/slos",
+                "class": "metric-percentage",
+                "remarks": "SLO for High vulnerabilities (e.g., within 30 days)"
+              }
+            ],
+            "methods": [
+              "MEASURE",
+              "EXAMINE"
+            ],
+            "types": [
+              "metric-value-collection",
+              "control-objective-evidence"
+            ],
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  },
+                  {
+                    "type": "assessment-platform",
+                    "actor-uuid": "platform-assessor-001-ar"
+                  },
+                  {
+                    "type": "tool",
+                    "actor-uuid": "comp-scanner-001-ar",
+                    "props": [
+                      {
+                        "name": "tool-function",
+                        "value": "Vulnerability Scanning & Patch Management System Audit"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "subjects": [
+              {
+                "subject-uuid": "c1d2e3f4-a5b6-7c8d-9e0f-1a2b3c4d5e6f",
+                "type": "inventory-item",
+                "title": "ACME CSP Inc. CSO Systems and Software Components"
+              }
+            ],
+            "relevant-evidence": [
+              {
+                "description": "Total number of applicable critical security patches identified requiring deployment during the sampling period.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Denominator (B_crit)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m7-B_crit",
+                    "value": "100",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Data from vulnerability scanning tools and patch management system for the last 30 days, focusing on critical severity."
+              },
+              {
+                "description": "Number of applicable critical security patches deployed within policy-defined, risk-informed timeframes (e.g., 7 days).",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Numerator (A_crit)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m7-A_crit",
+                    "value": "98",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "2 critical patches were deployed on day 8 due to operational constraints."
+              },
+              {
+                "description": "Metric Calculation (Critical): (98 / 100) * 100 = 98.0%",
+                "props": [
+                  {
+                    "name": "derived-metric-value-critical",
+                    "value": "98.0",
+                    "ns": "https://example.com/ksi/metrics/values"
+                  }
+                ]
+              },
+              {
+                "description": "Total number of applicable high severity security patches identified requiring deployment during the sampling period.",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Denominator (B_high)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m7-B_high",
+                    "value": "200",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "Data from vulnerability scanning tools and patch management system for the last 30 days, focusing on high severity."
+              },
+              {
+                "description": "Number of applicable high severity security patches deployed within policy-defined, risk-informed timeframes (e.g., 30 days).",
+                "props": [
+                  {
+                    "name": "metric-data-point",
+                    "value": "Numerator (A_high)",
+                    "ns": "https://example.com/ksi/metrics/datapoints"
+                  },
+                  {
+                    "name": "value-ksi-sc-m7-A_high",
+                    "value": "192",
+                    "ns": "https://example.com/ksi/metrics/values",
+                    "class": "count"
+                  }
+                ],
+                "remarks": "8 high severity patches were deferred beyond 30 days due to pending vendor fixes for compatibility issues."
+              },
+              {
+                "description": "Metric Calculation (High): (192 / 200) * 100 = 96.0%",
+                "props": [
+                  {
+                    "name": "derived-metric-value-high",
+                    "value": "96.0",
+                    "ns": "https://example.com/ksi/metrics/values"
+                  }
+                ]
+              }
+            ],
+            "collected": "2025-05-20T16:00:00Z",
+            "remarks": "Patch management effectiveness assessed using data from 'Network Vulnerability Scanner (Result Context)' and ACME CSP Inc.'s patch deployment records. Policy defines remediation timeframes based on vulnerability severity (Critical: 7 days, High: 30 days)."
+          }
+        ],
+        "risks": [
+          {
+            "uuid": "risk-ksi-sc-m1-001",
+            "title": "Risk of Inadequate Configuration Hardening and Review",
+            "description": "The metric for Configuration Hardening and Review (ksi-sc-m1) was 94.0%, which is below the Service Level Objective (SLO) of 95%. This indicates that a portion of production systems may not be adequately hardened or that configuration changes are not consistently undergoing required reviews and impact analyses.",
+            "statement": "Failure to maintain systems at hardened baselines and ensure rigorous change review increases the risk of misconfigurations, unauthorized changes, and exploitation of vulnerabilities, potentially leading to system compromise or service disruption.",
+            "props": [
+              {
+                "name": "related-control-id",
+                "value": "ksi-sc-m1",
+                "ns": "https://example.com/assessment/control-ref"
+              }
+            ],
+            "status": "open",
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  }
+                ]
+              }
+            ],
+            "threat-ids": [
+              {
+                "system": "https://example.com/threats/internal",
+                "id": "TH-CONFIG-DRIFT",
+                "href": "#threat-def-config-drift"
+              }
+            ],
+            "characterizations": [
+              {
+                "origin": {
+                  "actors": [
+                    {
+                      "type": "party",
+                      "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                      "role-id": "assessor"
+                    }
+                  ]
+                },
+                "facets": [
+                  {
+                    "name": "likelihood",
+                    "system": "https://example.com/risk/assessment-factors",
+                    "value": "medium"
+                  },
+                  {
+                    "name": "impact",
+                    "system": "https://example.com/risk/assessment-factors",
+                    "value": "medium"
+                  }
+                ]
+              }
+            ],
+            "deadline": "2025-08-20T23:59:59Z",
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m1-001"
+              }
+            ],
+            "remarks": "Remediation should focus on improving baseline adherence for the 12 non-compliant systems and ensuring consistent pre-implementation impact analysis for all changes."
+          },
+          {
+            "uuid": "risk-ksi-sc-m2-001",
+            "title": "Risk of Inadequate Network Traffic Encryption",
+            "description": "The metric for Network Traffic Encryption Coverage (ksi-sc-m2) was 99.8% for sensitive traffic, which is below the Service Level Objective (SLO) of 99.9%. This indicates that a small fraction of network segments transmitting sensitive information may not be using approved cryptographic mechanisms.",
+            "statement": "Insufficient encryption of network traffic, especially for sensitive data, increases the risk of unauthorized disclosure or modification of information during transmission, potentially leading to data breaches or integrity loss.",
+            "props": [
+              {
+                "name": "related-control-id",
+                "value": "ksi-sc-m2",
+                "ns": "https://example.com/assessment/control-ref"
+              }
+            ],
+            "status": "open",
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  }
+                ]
+              }
+            ],
+            "threat-ids": [
+              {
+                "system": "https://example.com/threats/external",
+                "id": "TH-EAVESDROPPING",
+                "href": "#threat-def-eavesdropping"
+              }
+            ],
+            "characterizations": [
+              {
+                "origin": {
+                  "actors": [
+                    {
+                      "type": "party",
+                      "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                      "role-id": "assessor"
+                    }
+                  ]
+                },
+                "facets": [
+                  {
+                    "name": "likelihood",
+                    "system": "https://example.com/risk/assessment-factors",
+                    "value": "low"
+                  },
+                  {
+                    "name": "impact",
+                    "system": "https://example.com/risk/assessment-factors",
+                    "value": "high"
+                  }
+                ]
+              }
+            ],
+            "deadline": "2025-07-20T23:59:59Z",
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m2-001"
+              }
+            ],
+            "remarks": "Remediation should focus on upgrading TLS versions and ensuring FIPS-validated modules are used on the 10 identified internal administrative interface segments."
+          },
+          {
+            "uuid": "risk-ksi-sc-m7-crit-001",
+            "title": "Risk of Delayed Critical Patch Deployment",
+            "description": "The metric for Risk-Informed Patch Management Effectiveness for Critical Vulnerabilities (ksi-sc-m7) was 98.0%, which is below the Service Level Objective (SLO) of 99%. This indicates that a small number of critical vulnerabilities are not being patched within the policy-defined timeframe (e.g., 7 days).",
+            "statement": "Delayed patching of critical vulnerabilities exposes the system to known exploits, significantly increasing the likelihood of successful attacks that could lead to severe impacts such as data breaches, system compromise, or major service outages.",
+            "props": [
+              {
+                "name": "related-control-id",
+                "value": "ksi-sc-m7",
+                "ns": "https://example.com/assessment/control-ref"
+              },
+              {
+                "name": "vulnerability-severity",
+                "value": "critical",
+                "ns": "https://example.com/assessment/vuln-severity"
+              }
+            ],
+            "status": "open",
+            "origins": [
+              {
+                "actors": [
+                  {
+                    "type": "party",
+                    "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                    "role-id": "assessor"
+                  }
+                ]
+              }
+            ],
+            "threat-ids": [
+              {
+                "system": "https://example.com/threats/external",
+                "id": "TH-KNOWN-VULN-EXPLOIT",
+                "href": "#threat-def-known-vuln-exploit"
+              }
+            ],
+            "characterizations": [
+              {
+                "origin": {
+                  "actors": [
+                    {
+                      "type": "party",
+                      "actor-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                      "role-id": "assessor"
+                    }
+                  ]
+                },
+                "facets": [
+                  {
+                    "name": "likelihood",
+                    "system": "https://example.com/risk/assessment-factors",
+                    "value": "high"
+                  },
+                  {
+                    "name": "impact",
+                    "system": "https://example.com/risk/assessment-factors",
+                    "value": "high"
+                  }
+                ]
+              }
+            ],
+            "deadline": "2025-06-20T23:59:59Z",
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m7-001"
+              }
+            ],
+            "remarks": "Remediation efforts should prioritize addressing the 2 critical patches that exceeded the 7-day deployment window and review processes to minimize future delays due to operational constraints."
+          }
+        ],
+        "findings": [
+          {
+            "uuid": "finding-ksi-sc-m1-001",
+            "title": "Finding for KSI-SC-M1: Configuration Hardening and Review Below SLO",
+            "description": "The objective to ensure production network devices and systems adhere to documented hardening baselines and undergo required configuration reviews (ksi-sc-m1) was not fully met. The measured compliance of 94.0% is below the 95% SLO.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ksi-sc-m1-objective-1",
+              "title": "Objective for KSI-SC-M1: Configuration Hardening and Review",
+              "status": {
+                "state": "not-satisfied",
+                "reason": "fail",
+                "remarks": "Metric value (94.0%) is below SLO (95%)."
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m1-001"
+              }
+            ],
+            "related-risks": [
+              {
+                "risk-uuid": "risk-ksi-sc-m1-001"
+              }
+            ]
+          },
+          {
+            "uuid": "finding-ksi-sc-m2-001",
+            "title": "Finding for KSI-SC-M2: Network Traffic Encryption Coverage Below SLO",
+            "description": "The objective to ensure network traffic segments transmitting sensitive information are protected using approved cryptographic mechanisms (ksi-sc-m2) was not fully met. The measured compliance of 99.8% for sensitive traffic is below the 99.9% SLO.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ksi-sc-m2-objective-1",
+              "title": "Objective for KSI-SC-M2: Network Traffic Encryption Coverage",
+              "status": {
+                "state": "not-satisfied",
+                "reason": "fail",
+                "remarks": "Metric value for sensitive traffic (99.8%) is below SLO (99.9%)."
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m2-001"
+              }
+            ],
+            "related-risks": [
+              {
+                "risk-uuid": "risk-ksi-sc-m2-001"
+              }
+            ]
+          },
+          {
+            "uuid": "finding-ksi-sc-m3-001",
+            "title": "Finding for KSI-SC-M3: Data-at-Rest Encryption for Sensitive Information Meets SLO",
+            "description": "The objective to ensure data stores and media containing federal or sensitive information are encrypted at rest using approved cryptographic mechanisms (ksi-sc-m3) was met. The measured compliance of 100.0% meets the 100% SLO.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ksi-sc-m3-objective-1",
+              "title": "Objective for KSI-SC-M3: Data-at-Rest Encryption",
+              "status": {
+                "state": "satisfied",
+                "reason": "pass",
+                "remarks": "Metric value (100.0%) meets SLO (100%)."
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m3-001"
+              }
+            ]
+          },
+          {
+            "uuid": "finding-ksi-sc-m4-001",
+            "title": "Finding for KSI-SC-M4: Centralized Configuration Management Adoption Meets SLO",
+            "description": "The objective to ensure production systems and services are managed by an approved centralized configuration management system (ksi-sc-m4) was met. The measured compliance of 96.0% meets the 95% SLO.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ksi-sc-m4-objective-1",
+              "title": "Objective for KSI-SC-M4: Centralized Configuration Management Adoption",
+              "status": {
+                "state": "satisfied",
+                "reason": "pass",
+                "remarks": "Metric value (96.0%) meets SLO (95%)."
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m4-001"
+              }
+            ]
+          },
+          {
+            "uuid": "finding-ksi-sc-m5-001",
+            "title": "Finding for KSI-SC-M5: Cryptographic Integrity Enforcement Meets SLO",
+            "description": "The objective to ensure critical systems and software components have active cryptographic integrity verification (ksi-sc-m5) was met. The measured compliance of 98.5% meets the 98% SLO.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ksi-sc-m5-objective-1",
+              "title": "Objective for KSI-SC-M5: Cryptographic Integrity Enforcement",
+              "status": {
+                "state": "satisfied",
+                "reason": "pass",
+                "remarks": "Metric value (98.5%) meets SLO (98%)."
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m5-001"
+              }
+            ]
+          },
+          {
+            "uuid": "finding-ksi-sc-m6-001",
+            "title": "Finding for KSI-SC-M6: Key Rotation Compliance Meets SLO",
+            "description": "The objective to ensure cryptographic keys are managed by an approved key management capability and rotated per policy (ksi-sc-m6) was met. The measured compliance of 99.3% meets the 99% SLO.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ksi-sc-m6-objective-1",
+              "title": "Objective for KSI-SC-M6: Key Rotation Compliance",
+              "status": {
+                "state": "satisfied",
+                "reason": "pass",
+                "remarks": "Metric value (99.3%) meets SLO (99%)."
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m6-001"
+              }
+            ]
+          },
+          {
+            "uuid": "finding-ksi-sc-m7-001",
+            "title": "Finding for KSI-SC-M7: Risk-Informed Patch Management Effectiveness (Critical Below SLO)",
+            "description": "The objective for risk-informed patch management (ksi-sc-m7) was not fully met for critical vulnerabilities. While high-severity patch timeliness met its SLO (96.0% vs 95%), critical vulnerability patch timeliness was 98.0%, below the 99% SLO.",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ksi-sc-m7-objective-1",
+              "title": "Objective for KSI-SC-M7: Risk-Informed Patch Management Effectiveness",
+              "status": {
+                "state": "not-satisfied",
+                "reason": "fail",
+                "remarks": "Critical vulnerability patch timeliness (98.0%) is below SLO (99%). High severity patch timeliness (96.0%) meets SLO (95%)."
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-m7-001"
+              }
+            ],
+            "related-risks": [
+              {
+                "risk-uuid": "risk-ksi-sc-m7-crit-001"
+              }
+            ]
+          },
+          {
+            "uuid": "finding-ksi-sc-aggregate-001",
+            "title": "Finding for Aggregate Metric KSI-SC: Service Configuration",
+            "description": "The overall objective for the aggregate Key Security Indicator KSI-SC (Service Configuration) is considered not fully satisfied due to identified deficiencies in sub-metrics ksi-sc-m1, ksi-sc-m2, and ksi-sc-m7 (critical patch timeliness).",
+            "target": {
+              "type": "objective-id",
+              "target-id": "ksi-sc-objective-1",
+              "title": "Overall Objective for KSI-SC: Service Configuration",
+              "status": {
+                "state": "not-satisfied",
+                "reason": "fail",
+                "remarks": "Deficiencies noted in sub-metrics related to configuration hardening, network encryption, and critical patch timeliness."
+              }
+            },
+            "related-observations": [
+              {
+                "observation-uuid": "obs-ksi-sc-aggregate-001"
+              },
+              {
+                "observation-uuid": "obs-ksi-sc-m1-001"
+              },
+              {
+                "observation-uuid": "obs-ksi-sc-m2-001"
+              },
+              {
+                "observation-uuid": "obs-ksi-sc-m7-001"
+              }
+            ],
+            "related-risks": [
+              {
+                "risk-uuid": "risk-ksi-sc-m1-001"
+              },
+              {
+                "risk-uuid": "risk-ksi-sc-m2-001"
+              },
+              {
+                "risk-uuid": "risk-ksi-sc-m7-crit-001"
+              }
+            ]
+          }
+        ],
+        "assessment-log": {
+          "entries": [
+            {
+              "uuid": "log-entry-001",
+              "title": "Automated Assessment Initiation for KSI-SC",
+              "description": "SecOps Agent initiated automated assessment procedures for KSI-SC, loading assessment plan and control definitions.",
+              "start": "2025-05-19T09:00:00Z",
+              "end": "2025-05-19T09:05:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ],
+              "remarks": "Assessment plan and catalog successfully parsed."
+            },
+            {
+              "uuid": "log-entry-002",
+              "title": "Automated Data Collection: KSI-SC-M1 (Configuration Hardening)",
+              "description": "SecOps Agent executed automated scripts to collect configuration data and analyze change records for compliance with hardening baselines and review policies.",
+              "start": "2025-05-19T10:30:00Z",
+              "end": "2025-05-19T17:00:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ],
+              "related-tasks": [
+                {
+                  "task-uuid": "task-ksi-sc-m1"
+                }
+              ]
+            },
+            {
+              "uuid": "log-entry-003",
+              "title": "Automated Data Collection: KSI-SC-M2 (Network Traffic Encryption)",
+              "description": "SecOps Agent initiated automated network traffic analysis and configuration data retrieval for traffic encryption verification.",
+              "start": "2025-05-19T11:00:00Z",
+              "end": "2025-05-19T18:00:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ],
+              "related-tasks": [
+                {
+                  "task-uuid": "task-ksi-sc-m2"
+                }
+              ]
+            },
+            {
+              "uuid": "log-entry-004",
+              "title": "Automated Data Collection: KSI-SC-M3 (Data-at-Rest Encryption)",
+              "description": "SecOps Agent performed automated audits of storage service configurations and KMS policies to verify data-at-rest encryption.",
+              "start": "2025-05-20T09:00:00Z",
+              "end": "2025-05-20T12:00:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ],
+              "related-tasks": [
+                {
+                  "task-uuid": "task-ksi-sc-m3"
+                }
+              ]
+            },
+            {
+              "uuid": "log-entry-005",
+              "title": "Automated Data Collection: KSI-SC-M4 (Centralized Config Management)",
+              "description": "SecOps Agent queried CMDB, centralized configuration management systems, and component inventory APIs for metric data.",
+              "start": "2025-05-20T09:30:00Z",
+              "end": "2025-05-20T13:00:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ],
+              "related-tasks": [
+                {
+                  "task-uuid": "task-ksi-sc-m4"
+                }
+              ]
+            },
+            {
+              "uuid": "log-entry-006",
+              "title": "Automated Data Collection: KSI-SC-M5 (Cryptographic Integrity)",
+              "description": "SecOps Agent performed automated checks of integrity monitoring systems, secure boot settings, and FIM log data.",
+              "start": "2025-05-20T10:00:00Z",
+              "end": "2025-05-20T14:00:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ],
+              "related-tasks": [
+                {
+                  "task-uuid": "task-ksi-sc-m5"
+                }
+              ]
+            },
+            {
+              "uuid": "log-entry-007",
+              "title": "Automated Data Collection: KSI-SC-M6 (Key Rotation Compliance)",
+              "description": "SecOps Agent queried key inventories, KMS configurations, and rotation schedule data.",
+              "start": "2025-05-20T10:30:00Z",
+              "end": "2025-05-20T15:00:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ],
+              "related-tasks": [
+                {
+                  "task-uuid": "task-ksi-sc-m6"
+                }
+              ]
+            },
+            {
+              "uuid": "log-entry-008",
+              "title": "Automated Data Collection: KSI-SC-M7 (Patch Management)",
+              "description": "SecOps Agent processed vulnerability scan outputs and patch deployment records from management systems.",
+              "start": "2025-05-20T11:00:00Z",
+              "end": "2025-05-20T16:00:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ],
+              "related-tasks": [
+                {
+                  "task-uuid": "task-ksi-sc-m7"
+                }
+              ]
+            },
+            {
+              "uuid": "log-entry-009",
+              "title": "Automated Data Analysis and Results Aggregation",
+              "description": "SecOps Agent aggregated collected data, performed metric calculations, and generated initial observations, risks, and findings.",
+              "start": "2025-05-20T16:00:00Z",
+              "end": "2025-05-20T16:45:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ]
+            },
+            {
+              "uuid": "log-entry-010",
+              "title": "Automated Assessment Cycle Completion & Report Generation",
+              "description": "SecOps Agent completed the assessment cycle and generated the final assessment results document.",
+              "start": "2025-05-20T16:45:00Z",
+              "end": "2025-05-20T17:00:00Z",
+              "logged-by": [
+                {
+                  "party-uuid": "c3a0b1a0-8d70-4e6a-9a0f-0c1d2e3f4g5h",
+                  "role-id": "assessor"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "back-matter": {
+      "resources": [
+        {
+          "uuid": "b4a3c2d1-e0f9-8765-4321-0fedcba98765",
+          "title": "KSI-SC: Service Configuration Metrics Catalog",
+          "description": "The OSCAL catalog defining the Key Security Indicator and specific metrics for Service Configuration.",
+          "rlinks": [
+            {
+              "href": "catalog-KSI-SC.json",
+              "media-type": "application/oscal.catalog+json"
+            }
+          ],
+          "remarks": "Source document provided by the user."
+        },
+        {
+          "uuid": "c5b4a3d2-f1e0-9876-5432-10fedcba9876",
+          "title": "Assessment Plan for KSI-SC",
+          "description": "The OSCAL assessment plan used for this assessment.",
+          "rlinks": [
+            {
+              "href": "assessment-plan-KSI-SC.json",
+              "media-type": "application/oscal.assessment-plan+json"
+            }
+          ],
+          "props": [
+            {
+              "name": "internal-id",
+              "value": "assessment-plan-ksi-sc"
+            }
+          ],
+          "remarks": "Source document provided by the user. Referenced by import-ap."
+        },
+        {
+          "uuid": "d6c5b4a3-02f1-a987-6543-210fedcba987",
+          "title": "CSO Description: Landing Zone Accelerator on AWS",
+          "description": "Implementation Guide for the Landing Zone Accelerator on AWS, which ACME CSP Inc. uses to build its CSO.",
+          "rlinks": [
+            {
+              "href": "landing-zone-accelerator-on-aws.pdf",
+              "media-type": "application/pdf"
+            }
+          ],
+          "remarks": "Source document provided by the user, describes the underlying accelerator used by ACME CSP Inc."
+        },
+        {
+          "uuid": "e7d6c5b4-1302-ba98-7654-3210fedcba98",
+          "title": "OSCAL Assessment Results JSON Schema 1.1.3",
+          "rlinks": [
+            {
+              "href": "https://csrc.nist.gov/ns/oscal/1.1.3/oscal-ar-schema.json"
+            }
+          ]
+        },
+        {
+          "uuid": "f8e7d6c5-2413-cb0a-8765-43210fedcba9",
+          "title": "OSCAL Assessment Plan JSON Schema 1.1.3",
+          "rlinks": [
+            {
+              "href": "https://csrc.nist.gov/ns/oscal/1.1.3/oscal-ap-schema.json"
+            }
+          ]
+        },
+        {
+          "uuid": "00f8e7d6-3524-dc1b-9876-543210fedcba",
+          "title": "OSCAL Catalog JSON Schema 1.1.3",
+          "rlinks": [
+            {
+              "href": "https://csrc.nist.gov/ns/oscal/1.1.3/oscal-catalog-schema.json"
+            }
+          ]
+        },
+        {
+          "uuid": "1100f8e7-4635-ed2c-a987-6543210fedcb",
+          "title": "OSCAL Component Definition JSON Schema 1.1.3",
+          "rlinks": [
+            {
+              "href": "https://csrc.nist.gov/ns/oscal/1.1.3/oscal-component-schema.json"
+            }
+          ]
+        },
+        {
+          "uuid": "threat-def-config-drift",
+          "title": "Threat Definition: Configuration Drift",
+          "description": "The threat that system configurations deviate from established, secure baselines over time due to unmanaged changes or lack of oversight, leading to exploitable vulnerabilities."
+        },
+        {
+          "uuid": "threat-def-eavesdropping",
+          "title": "Threat Definition: Eavesdropping/Interception",
+          "description": "The threat of an unauthorized party intercepting and reading sensitive information transmitted over a network due to lack of or weak encryption."
+        },
+        {
+          "uuid": "threat-def-known-vuln-exploit",
+          "title": "Threat Definition: Known Vulnerability Exploitation",
+          "description": "The threat that attackers will exploit publicly known vulnerabilities in software for which patches are available but not yet applied."
+        }
+      ]
+    }
+  }
+}
