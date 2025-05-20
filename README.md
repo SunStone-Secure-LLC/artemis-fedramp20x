@@ -33,16 +33,16 @@ As such, a private repository with all available audit data, and a full "test ca
 ## KSI Location
 The automated metrics are to be provided under the following folder structure for easy human or machine discovery and consumption:
 
-/KSIs/system-assessment-plan-KSI-ID.json 
+/KSIs/assessment-plan-KSI-ID.json 
 
-/KSIs/system-assessment-result-KSI-ID.json
+/KSIs/assessment-result-KSI-ID.json
 
 /KSIs/summary-KSI-ID.json
 
 ## 3PAO Audit of the KSI Methodology and Reported Results
 The assessment tasks and methods for the 3PAO are provided for each KSI "aggregate" metric, as well as the supporting evidence metrics. These will be made publicly available in this repository under the following folder structure:
 
-/KSIs/3pao-assessment-plan-KSI-ID.json
+/3PAO/assessment-plan-KSI-ID.json
 
 # Automation and Machine Readable Data Requirements
 The system-assessment-result-KSI-ID.json files are machine-readable OSCAL 1.1.3 Assessment Result files that provide results for each Key Security Indicator Validation. This file includes the overall KSI Validation metric, and associated supporting metrics for the supporting RFC required characteristics. 
