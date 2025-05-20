@@ -1,0 +1,42 @@
+[
+  {
+    "target_id": "CNA-DOS-M1",
+    "title": "CNA-DOS-M1 Status",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "CNA-BTC-M1",
+    "title": "CNA-BTC-M1 Status",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "CNA-ILP-M1",
+    "title": "CNA-ILP-M1 Status",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "CNA-MSE-M1",
+    "title": "CNA-MSE-M1 Status",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "CNA-NCE-M1",
+    "title": "CNA-NCE-M1 Status",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "CNA-CSC-M1",
+    "title": "CNA-CSC-M1 Status",
+    "status": "not-satisfied"
+  },
+  {
+    "target_id": "CNA-HAR-M1",
+    "title": "CNA-HAR-M1 Status",
+    "status": "satisfied"
+  },
+  {
+    "target_id": "KSI-CNA-AGGREGATE",
+    "title": "KSI-CNA-AGGREGATE Status",
+    "status": "satisfied"
+  }
+]
