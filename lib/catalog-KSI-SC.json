@@ -1,0 +1,384 @@
+{
+  "catalog": {
+    "uuid": "ef1dcdb0-9ad5-4b70-a104-c05dc24cb682",
+    "metadata": {
+      "title": "KSI-SC: Service Configuration Metrics Catalog with Assessment Measures",
+      "last-modified": "2025-05-19T12:56:34.138830Z",
+      "version": "1.1.0",
+      "oscal-version": "1.1.3",
+      "remarks": "Catalog defining the KSI-SC aggregate metric and its constituent specific metrics, including 'MEASURE' assessment methods and objectives for each."
+    },
+    "groups": [
+      {
+        "id": "ksi-sc",
+        "class": "ksi-metric-aggregate",
+        "title": "KSI-SC: Service Configuration",
+        "parts": [
+          {
+            "name": "summary",
+            "prose": "KSI-SC: Service Configuration is an aggregated measure representing the adherence of a cloud-native system to established security configuration best practices. It is composed of several specific metrics that individually assess key aspects of service configuration security. The overall KSI-SC score or dashboard provides a comprehensive view of the system's configuration posture against defined policies and requirements, aligning with principles found in NIST SP 800-53 controls such as CM-2, CM-4, CM-8, IA-7, RA-7, SC-8, SC-8 (1), SC-13, SC-28, SC-28 (1), SI-3, and SI-4."
+          }
+        ],
+        "controls": [
+          {
+            "id": "ksi-sc-m1",
+            "class": "ksi-metric-specific",
+            "title": "Configuration Hardening and Review",
+            "props": [
+              {
+                "name": "related-nist-sp800-53",
+                "value": "CM-2, CM-4"
+              }
+            ],
+            "parts": [
+              {
+                "name": "description",
+                "prose": "This metric measures the percentage of production network devices and systems whose configurations are validated against an organizationally defined and maintained hardening baseline, and for which reviews and impact analyses for changes are conducted as per policy."
+              },
+              {
+                "name": "metric-expression",
+                "prose": "Percentage: 100 * (A/B)"
+              },
+              {
+                "name": "metric-rules",
+                "title": "Rules for Calculation",
+                "prose": "A = Number of production network devices and systems compliant with documented hardening baselines, and for which configuration changes undergo pre-implementation impact analysis and periodic reviews as per policy.\nB = Total number of production network devices and systems in scope.\nCompliance includes:\n- Adherence to current, documented baseline configurations.\n- Evidence that baseline configurations are maintained under configuration control.\n- Evidence of periodic review and update of baseline configurations at organization-defined frequencies or upon specific triggers.\n- Evidence that changes from the baseline undergo security impact analysis prior to implementation."
+              },
+              {
+                "name": "assessment-objective",
+                "title": "Assessment Objective for KSI-SC-M1",
+                "prose": "To determine the extent to which production network devices and systems adhere to documented hardening baselines and undergo required configuration reviews and impact analyses for changes, in accordance with organizational policy."
+              },
+              {
+                "name": "assessment-method-guidance",
+                "title": "Assessment Method (Measure) for KSI-SC-M1",
+                "props": [
+                  {
+                    "name": "assessment-method-type",
+                    "value": "MEASURE"
+                  }
+                ],
+                "prose": "This metric is assessed by calculating the percentage: 100 * (A/B).\nData Collection Steps for Numerator (A - Compliant Systems):\n1. Identify all production network devices and systems within the defined scope (constituting Denominator B).\n2. For each system/device, verify its current configuration against the documented organizational hardening baseline.\n3. For each system/device, verify that configuration reviews have been conducted at the policy-defined frequency.\n4. For each system/device, examine change records to confirm that security impact analyses were performed for all configuration changes from the baseline *prior* to their implementation.\n5. A system/device is counted towards 'A' if it meets all above criteria: baseline adherence, timely reviews, and pre-implementation impact analysis for changes.\nData Collection Steps for Denominator (B - Total Systems):\n1. Compile a list and count the total number of production network devices and systems in the defined scope.\nThis measurement should be performed periodically (e.g., quarterly) using data from configuration management databases (CMDB), security configuration management (SCM) tools, audit logs, and change management records."
+              },
+              {
+                "name": "slo-recommendations",
+                "prose": "95%"
+              },
+              {
+                "name": "supporting-nist-assessment-objectives",
+                "title": "Supporting NIST SP 800-53 Assessment Objectives (Informative)",
+                "prose": "This metric helps in assessing aspects related to NIST SP 800-53 assessment objectives for:\n- **CM-2 (Baseline Configuration)**: Particularly objectives verifying that a current baseline configuration is developed, documented (cm-2_obj.a-1), maintained under configuration control (cm-2_obj.a-2), and reviewed/updated (cm-2_obj.b.1).\n- **CM-4 (Impact Analyses)**: Particularly objectives verifying that changes to the system are analyzed to determine potential security impacts prior to change implementation (cm-4_obj-1)."
+              }
+            ]
+          },
+          {
+            "id": "ksi-sc-m2",
+            "class": "ksi-metric-specific",
+            "title": "Network Traffic Encryption Coverage",
+            "props": [
+              {
+                "name": "related-nist-sp800-53",
+                "value": "SC-8, SC-8(1), SC-13"
+              }
+            ],
+            "parts": [
+              {
+                "name": "description",
+                "prose": "This metric measures the percentage of observed network traffic segments (internal and external, especially those transmitting sensitive or federal information) protected using FIPS-validated or NSA-approved cryptographic mechanisms ensuring both confidentiality and integrity."
+              },
+              {
+                "name": "metric-expression",
+                "prose": "Percentage: 100 * (A/B)"
+              },
+              {
+                "name": "metric-rules",
+                "title": "Rules for Calculation",
+                "prose": "A = Volume or number of network traffic segments observed using approved cryptographic mechanisms for both confidentiality and integrity.\nB = Total volume or number of network traffic segments observed that require cryptographic protection.\n'Approved cryptographic mechanisms' must comply with SC-13 requirements (FIPS-validated or NSA-approved).\nProtection must address both prevention of unauthorized disclosure and detection of changes to information during transmission, aligning with SC-8 and SC-8(1)."
+              },
+              {
+                "name": "assessment-objective",
+                "title": "Assessment Objective for KSI-SC-M2",
+                "prose": "To determine the percentage of network traffic segments (by volume or count) that are protected using approved cryptographic mechanisms for both confidentiality and integrity, as required by organizational policy."
+              },
+              {
+                "name": "assessment-method-guidance",
+                "title": "Assessment Method (Measure) for KSI-SC-M2",
+                "props": [
+                  {
+                    "name": "assessment-method-type",
+                    "value": "MEASURE"
+                  }
+                ],
+                "prose": "This metric is assessed by calculating the percentage: 100 * (A/B).\nData Collection Steps for Numerator (A - Encrypted Segments):\n1. Identify all network segments/flows in scope (constituting Denominator B).\n2. For each segment/flow, or a representative sample, determine if it is encrypted using approved cryptographic protocols (e.g., TLS 1.2+, FIPS-validated modules). This can be done via network traffic analysis tools, configuration review of network devices/endpoints, or inspection of service provider capabilities.\n3. Quantify the volume or count of segments/flows confirmed to be using approved encryption.\nData Collection Steps for Denominator (B - Total Segments Requiring Encryption):\n1. Identify and quantify the total volume or count of network traffic segments/flows in scope that require cryptographic protection as per organizational policy. Exclude traffic explicitly approved for non-encryption based on a documented risk assessment, if the policy allows.\nThis measurement should be performed continuously or periodically (e.g., monthly) using data from network monitoring tools, flow logs, and configuration audits."
+              },
+              {
+                "name": "slo-recommendations",
+                "prose": "99.9% for external traffic and traffic with sensitive/federal information; 95% for other internal traffic requiring protection."
+              },
+              {
+                "name": "supporting-nist-assessment-objectives",
+                "title": "Supporting NIST SP 800-53 Assessment Objectives (Informative)",
+                "prose": "This metric helps in assessing aspects related to NIST SP 800-53 assessment objectives for:\n- **SC-8 (Transmission Confidentiality and Integrity)** and **SC-8(1) (Cryptographic Protection)**: Particularly objectives verifying that the confidentiality and/or integrity of transmitted information are protected using cryptographic mechanisms (sc-8_obj, sc-8.1_obj-1).\n- **SC-13 (Cryptographic Protection)**: Particularly objectives verifying that cryptographic uses are identified and appropriate cryptography is implemented (sc-13_obj.a, sc-13_obj.b)."
+              }
+            ]
+          },
+          {
+            "id": "ksi-sc-m3",
+            "class": "ksi-metric-specific",
+            "title": "Data-at-Rest Encryption for Sensitive Information",
+            "props": [
+              {
+                "name": "related-nist-sp800-53",
+                "value": "SC-28, SC-28(1), SC-13"
+              }
+            ],
+            "parts": [
+              {
+                "name": "description",
+                "prose": "This metric measures the percentage of data stores and media containing federal or other designated sensitive information that are encrypted at rest using FIPS-validated or NSA-approved cryptographic mechanisms."
+              },
+              {
+                "name": "metric-expression",
+                "prose": "Percentage: 100 * (A/B)"
+              },
+              {
+                "name": "metric-rules",
+                "title": "Rules for Calculation",
+                "prose": "A = Number/Volume of data stores/media containing federal/sensitive information confirmed to be encrypted at rest with approved cryptographic methods.\nB = Total number/Volume of data stores/media identified as containing federal/sensitive information.\nVerification includes confirming that cryptographic mechanisms prevent unauthorized disclosure and modification.\n'Approved cryptographic mechanisms' must align with SC-13."
+              },
+              {
+                "name": "assessment-objective",
+                "title": "Assessment Objective for KSI-SC-M3",
+                "prose": "To determine the percentage of data stores and media (by count or volume) containing federal or sensitive information that are encrypted at rest using approved cryptographic mechanisms, in accordance with organizational policy."
+              },
+              {
+                "name": "assessment-method-guidance",
+                "title": "Assessment Method (Measure) for KSI-SC-M3",
+                "props": [
+                  {
+                    "name": "assessment-method-type",
+                    "value": "MEASURE"
+                  }
+                ],
+                "prose": "This metric is assessed by calculating the percentage: 100 * (A/B).\nData Collection Steps for Numerator (A - Encrypted Data Stores):\n1. Identify all data stores/media containing federal or sensitive information (constituting Denominator B).\n2. For each data store/medium, verify that encryption at rest is enabled using approved cryptographic algorithms and key management practices (e.g., AES-256, FIPS 140 validated modules). This can be done via configuration audits of storage systems, databases, and cloud provider settings.\n3. Count the number or quantify the volume of data stores/media confirmed to be encrypted.\nData Collection Steps for Denominator (B - Total Data Stores):\n1. Maintain an inventory of all data stores/media containing federal or sensitive information, as per the organization's data classification policy. Count the total number or quantify the total volume.\nThis measurement should be performed periodically (e.g., quarterly) via automated configuration checks and manual verification where necessary."
+              },
+              {
+                "name": "slo-recommendations",
+                "prose": "100%"
+              },
+              {
+                "name": "supporting-nist-assessment-objectives",
+                "title": "Supporting NIST SP 800-53 Assessment Objectives (Informative)",
+                "prose": "This metric helps in assessing aspects related to NIST SP 800-53 assessment objectives for:\n- **SC-28 (Protection of Information at Rest)** and **SC-28(1) (Cryptographic Protection)**: Particularly objectives verifying that the information at rest is protected using cryptographic mechanisms to prevent unauthorized disclosure and modification (sc-28_obj, sc-28.1_obj-1, sc-28.1_obj-2).\n- **SC-13 (Cryptographic Protection)**: Particularly objectives verifying that appropriate cryptography is implemented for identified uses (sc-13_obj.a, sc-13_obj.b)."
+              }
+            ]
+          },
+          {
+            "id": "ksi-sc-m4",
+            "class": "ksi-metric-specific",
+            "title": "Centralized Configuration Management Adoption",
+            "props": [
+              {
+                "name": "related-nist-sp800-53",
+                "value": "CM-2, CM-8"
+              }
+            ],
+            "parts": [
+              {
+                "name": "description",
+                "prose": "This metric measures the percentage of production systems and services whose configurations are actively managed, enforced, and inventoried by an approved centralized configuration management system."
+              },
+              {
+                "name": "metric-expression",
+                "prose": "Percentage: 100 * (A/B)"
+              },
+              {
+                "name": "metric-rules",
+                "title": "Rules for Calculation",
+                "prose": "A = Number of production systems/services whose configuration is actively managed by a central system and accurately reflected in a central component inventory.\nB = Total number of production systems/services in scope.\nThe centralized system must be capable of maintaining baseline configurations under control.\nThe system inventory must be accurate and complete."
+              },
+              {
+                "name": "assessment-objective",
+                "title": "Assessment Objective for KSI-SC-M4",
+                "prose": "To determine the percentage of production systems and services whose configurations are managed and enforced through an approved centralized configuration management system and are accurately listed in a central component inventory."
+              },
+              {
+                "name": "assessment-method-guidance",
+                "title": "Assessment Method (Measure) for KSI-SC-M4",
+                "props": [
+                  {
+                    "name": "assessment-method-type",
+                    "value": "MEASURE"
+                  }
+                ],
+                "prose": "This metric is assessed by calculating the percentage: 100 * (A/B).\nData Collection Steps for Numerator (A - Centrally Managed & Inventoried Systems):\n1. Identify all production systems/services in scope (constituting Denominator B).\n2. For each system/service, verify it is registered and actively managed by the organization's approved centralized configuration management tool(s) (e.g., Ansible, Chef, Puppet, Kubernetes ConfigMaps/Secrets).\n3. For each system/service, verify that it is accurately reflected in the central component inventory.\n4. A system/service is counted towards 'A' if it meets both criteria.\nData Collection Steps for Denominator (B - Total Systems in Scope):\n1. Count the total number of production systems/services identified as in scope for centralized configuration management.\nThis measurement should be performed periodically (e.g., monthly) by querying the centralized management system(s) and the component inventory data."
+              },
+              {
+                "name": "slo-recommendations",
+                "prose": "95%"
+              },
+              {
+                "name": "supporting-nist-assessment-objectives",
+                "title": "Supporting NIST SP 800-53 Assessment Objectives (Informative)",
+                "prose": "This metric helps in assessing aspects related to NIST SP 800-53 assessment objectives for:\n- **CM-2 (Baseline Configuration)**: Particularly objective cm-2_obj.a-2, verifying that a current baseline configuration is maintained under configuration control.\n- **CM-8 (System Component Inventory)**: Particularly objectives ensuring an inventory of system components is developed, documented, and maintained, and that it accurately reflects the system (e.g., cm-8_obj.a.1, cm-8_obj.a.2)."
+              }
+            ]
+          },
+          {
+            "id": "ksi-sc-m5",
+            "class": "ksi-metric-specific",
+            "title": "Cryptographic Integrity Enforcement",
+            "props": [
+              {
+                "name": "related-nist-sp800-53",
+                "value": "SI-3, SI-4"
+              }
+            ],
+            "parts": [
+              {
+                "name": "description",
+                "prose": "This metric measures the percentage of critical systems and software components where cryptographic mechanisms are actively used to verify their integrity and detect unauthorized modifications."
+              },
+              {
+                "name": "metric-expression",
+                "prose": "Percentage: 100 * (A/B)"
+              },
+              {
+                "name": "metric-rules",
+                "title": "Rules for Calculation",
+                "prose": "A = Number of critical systems/components with active and validated cryptographic integrity verification mechanisms (e.g., digital signatures for code, secure boot, runtime integrity monitoring using cryptographic hashes).\nB = Total number of identified critical systems/components.\nIntegrity verification mechanisms should support the detection of unauthorized changes.\nSystem monitoring should be configured to detect and alert on integrity failures."
+              },
+              {
+                "name": "assessment-objective",
+                "title": "Assessment Objective for KSI-SC-M5",
+                "prose": "To determine the percentage of critical systems and software components that have active and regularly validated cryptographic integrity verification mechanisms enabled to detect unauthorized modifications."
+              },
+              {
+                "name": "assessment-method-guidance",
+                "title": "Assessment Method (Measure) for KSI-SC-M5",
+                "props": [
+                  {
+                    "name": "assessment-method-type",
+                    "value": "MEASURE"
+                  }
+                ],
+                "prose": "This metric is assessed by calculating the percentage: 100 * (A/B).\nData Collection Steps for Numerator (A - Systems with Active Integrity Verification):\n1. Identify all critical systems and software components as per the organization's risk assessment (constituting Denominator B).\n2. For each critical system/component, verify that cryptographic integrity verification mechanisms (e.g., secure boot, signed code/containers, file integrity monitoring with cryptographic hashes) are enabled and active.\n3. Verify that these mechanisms are regularly checked (automatically or manually) and that procedures are in place to investigate and respond to detected integrity violations/alerts.\n4. A system/component is counted towards 'A' if it meets these criteria.\nData Collection Steps for Denominator (B - Total Critical Systems/Components):\n1. Count the total number of critical systems and software components identified.\nThis measurement should be performed periodically (e.g., quarterly) through configuration audits, review of monitoring tool outputs, and system logs."
+              },
+              {
+                "name": "slo-recommendations",
+                "prose": "98%"
+              },
+              {
+                "name": "supporting-nist-assessment-objectives",
+                "title": "Supporting NIST SP 800-53 Assessment Objectives (Informative)",
+                "prose": "This metric helps in assessing aspects related to NIST SP 800-53 assessment objectives for:\n- **SI-3 (Malicious Code Protection)**: Particularly objective si-3_obj.a-1, as cryptographic integrity checks serve as mechanisms to detect malicious or unauthorized modifications indicative of malicious code.\n- **SI-4 (System Monitoring)**: Particularly objectives si-4_obj.a.1 (monitor to detect attacks and indicators) and si-4_obj.d (analyze detected events), as integrity violations are key indicators that system monitoring should detect and which require analysis."
+              }
+            ]
+          },
+          {
+            "id": "ksi-sc-m6",
+            "class": "ksi-metric-specific",
+            "title": "Key Rotation Compliance",
+            "props": [
+              {
+                "name": "related-nist-sp800-53",
+                "value": "SC-13, IA-7"
+              }
+            ],
+            "parts": [
+              {
+                "name": "description",
+                "prose": "This metric measures the percentage of cryptographic keys (used for data-at-rest encryption, traffic encryption, integrity verification) that are managed by an approved key management capability and rotated within the policy-defined lifecycle."
+              },
+              {
+                "name": "metric-expression",
+                "prose": "Percentage: 100 * (A/B)"
+              },
+              {
+                "name": "metric-rules",
+                "title": "Rules for Calculation",
+                "prose": "A = Number of cryptographic keys managed by an approved, authenticated key management system and rotated in compliance with policy.\nB = Total number of cryptographic keys subject to rotation policy and management by an approved capability.\nThe key management capability should itself be subject to authentication controls.\nThe implemented cryptography relies on the strength of key management practices, including regular rotation."
+              },
+              {
+                "name": "assessment-objective",
+                "title": "Assessment Objective for KSI-SC-M6",
+                "prose": "To determine the percentage of cryptographic keys, managed by an approved key management capability, that are rotated within the timelines specified by the organization's key management policy."
+              },
+              {
+                "name": "assessment-method-guidance",
+                "title": "Assessment Method (Measure) for KSI-SC-M6",
+                "props": [
+                  {
+                    "name": "assessment-method-type",
+                    "value": "MEASURE"
+                  }
+                ],
+                "prose": "This metric is assessed by calculating the percentage: 100 * (A/B).\nData Collection Steps for Numerator (A - Compliantly Rotated Keys):\n1. Maintain an inventory of all cryptographic keys subject to the organization's rotation policy (constituting Denominator B). This inventory should include key type, purpose, creation date, last rotation date, and the policy-defined rotation frequency/maximum lifetime.\n2. For each key in the inventory, verify if it has been rotated within its policy-defined lifecycle (i.e., the time since its last rotation or creation does not exceed the maximum allowed lifetime).\n3. Verify that these keys are managed by an approved and authenticated key management system.\n4. A key is counted towards 'A' if it meets these criteria.\nData Collection Steps for Denominator (B - Total Keys Subject to Rotation Policy):\n1. Count the total number of cryptographic keys identified in the inventory as subject to the rotation policy.\nThis measurement should be performed periodically (e.g., quarterly) by auditing the key inventory and key management system logs/records."
+              },
+              {
+                "name": "slo-recommendations",
+                "prose": "99%"
+              },
+              {
+                "name": "supporting-nist-assessment-objectives",
+                "title": "Supporting NIST SP 800-53 Assessment Objectives (Informative)",
+                "prose": "This metric helps in assessing aspects related to NIST SP 800-53 assessment objectives for:\n- **SC-13 (Cryptographic Protection)**: Particularly objective sc-13_obj.b, as the ongoing effectiveness of implemented cryptography relies on sound key management practices, including regular rotation.\n- **IA-7 (Cryptographic Module Authentication)**: Particularly objective ia-7_obj, as key management systems often utilize or are protected by authenticated cryptographic modules.\n- **SC-12 (Cryptographic Key Establishment and Management)** (though not explicitly listed by user for this metric, it's highly relevant): Its objectives would directly cover key establishment and management, including aspects like key rotation, according to defined requirements."
+              }
+            ]
+          },
+          {
+            "id": "ksi-sc-m7",
+            "class": "ksi-metric-specific",
+            "title": "Risk-Informed Patch Management Effectiveness",
+            "props": [
+              {
+                "name": "related-nist-sp800-53",
+                "value": "RA-7"
+              }
+            ],
+            "parts": [
+              {
+                "name": "description",
+                "prose": "This metric measures the percentage of identified and applicable security patches that are deployed within the timeframe defined by a documented, risk-informed patching policy, which itself aligns with the organization's risk tolerance."
+              },
+              {
+                "name": "metric-expression",
+                "prose": "Percentage: 100 * (A/B)"
+              },
+              {
+                "name": "metric-rules",
+                "title": "Rules for Calculation",
+                "prose": "A = Number of applicable security patches deployed within policy-defined, risk-informed timeframes during the sampling period.\nB = Total number of applicable security patches identified requiring deployment during the sampling period.\nThe patching policy must define remediation timeframes based on vulnerability severity and asset criticality, reflecting organizational risk tolerance."
+              },
+              {
+                "name": "assessment-objective",
+                "title": "Assessment Objective for KSI-SC-M7",
+                "prose": "To determine the percentage of identified and applicable security patches (or vulnerability remediations) that are deployed/completed within the timeframes established by the organization's documented, risk-informed vulnerability/patch management policy."
+              },
+              {
+                "name": "assessment-method-guidance",
+                "title": "Assessment Method (Measure) for KSI-SC-M7",
+                "props": [
+                  {
+                    "name": "assessment-method-type",
+                    "value": "MEASURE"
+                  }
+                ],
+                "prose": "This metric is assessed by calculating the percentage: 100 * (A/B).\nData Collection Steps for Numerator (A - Timely Remediated Vulnerabilities/Patches):\n1. Identify all applicable security vulnerabilities/patches identified during the sampling period (or carried over and still open) that require remediation (constituting Denominator B).\n2. For each vulnerability/patch, determine its assigned severity (e.g., critical, high) and the corresponding maximum remediation timeframe as defined in the risk-informed patching policy.\n3. Verify the actual date of deployment/remediation for each vulnerability/patch.\n4. A vulnerability/patch is counted towards 'A' if it was remediated within its policy-defined timeframe.\nData Collection Steps for Denominator (B - Total Applicable Vulnerabilities/Patches):\n1. Count the total number of applicable security vulnerabilities/patches identified during the sampling period that require remediation according to policy.\nThis measurement should be performed frequently (e.g., weekly or monthly for critical/high vulnerabilities) using data from vulnerability scanning tools, patch management systems, change management records, and threat intelligence feeds."
+              },
+              {
+                "name": "slo-recommendations",
+                "prose": "Critical Vulnerabilities: 99% within X days (e.g., 7 days, per policy); High Vulnerabilities: 95% within Y days (e.g., 30 days, per policy)"
+              },
+              {
+                "name": "supporting-nist-assessment-objectives",
+                "title": "Supporting NIST SP 800-53 Assessment Objectives (Informative)",
+                "prose": "This metric helps in assessing aspects related to NIST SP 800-53 assessment objectives for:\n- **RA-7 (Risk Response)**: Particularly objectives ensuring that findings from security assessments and monitoring (which include vulnerabilities requiring patches) are responded to in accordance with organizational risk tolerance (ra-7_obj-1, ra-7_obj-3). A risk-informed patching policy and its effective execution directly address this."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
