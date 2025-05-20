@@ -264,7 +264,7 @@ The Github action will digitally sign each KSI "SAR". At a future date we may pr
 A summary shorter non-OSCAL JSON may also be produced - see the utils/ folder for an example notebook to generate this.
 
 # 3PAO Review
-During this DRAFT phase, the CSO has engaged several 3PAOs on how to perform the assessment.  As noted, the CSP will provide a pro forma assessment plans:
+During this DRAFT phase, the CSP has engaged several 3PAOs on how to perform the assessment.  As noted, we will provide pro forma assessment plans:
 - The KSI "SAP" which details publicly how each metric was defined (using "classes") and how the KSI attestation meets the threshold for PASS.
 - The 3PAO "SAP" which details privately how the 3PAO can use automated tools to validate that the metrics reported match the underlying CSO actual 
   state. We encourage all 3PAOs to provide a summary based on the approach defined in these assessment plans.
