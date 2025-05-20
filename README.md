@@ -41,13 +41,19 @@ The automated metrics are to be provided under the following folder structure fo
 
 Where ID represents each of the KSIs (eg. CNA, IAM, SC, MLA, etc.)
 
+## Supporting Artifacts
+
+To make it possible for GRC and other tools to consume the definition of the KSI metrics definitions, we provide OSCAL catalogs for each KSI located in:
+
+/lib/catalog-KSI-ID.json
+
 ## 3PAO Audit of the KSI Methodology and Reported Results
 The assessment tasks and methods for the 3PAO are provided for each KSI "aggregate" metric, as well as the supporting evidence metrics. These will be made publicly available in this repository under the following folder structure:
 
 /3PAO/assessment-plan-KSI-ID.json
 
 # Automation and Machine Readable Data Requirements
-The assessment-result-KSI-ID.json files are machine-readable OSCAL 1.1.3 Assessment Result files that provide results for each Key Security Indicator Validation. This file includes the overall KSI Validation metric, and associated supporting metrics for the supporting RFC required characteristics. An accompanying assessment-plan-KSI-ID.json file will provide additional details of how the metrics are defined and can be executed (at a high level.) We may supplement the files with additional OSCAL 1.1.3 component defs and catalogs and profiles if/when useful. For the simple examples for draft, we omit those for brevity.
+The assessment-result-KSI-ID.json files are machine-readable OSCAL 1.1.3 Assessment Result files that provide results for each Key Security Indicator Validation. This file includes the overall KSI Validation metric, and associated supporting metrics for the supporting RFC required characteristics. An accompanying assessment-plan-KSI-ID.json file will provide additional details of how the metrics are defined and can be executed (at a high level.) We will supplement the files with additional OSCAL 1.1.3 component defs and catalogs and profiles as/when useful. For the simple examples for draft, we omit those for brevity.
 
 A Github action will automatically produce this file in OSCAL 1.1.3 format. Given that the action will run on a trigger when new assessment-result-KSI-ID.json files are committed from in-boundary sources, the KSI "SAR" will not be generated "on demand" so much as "continuously".
 
