@@ -15,8 +15,8 @@ An Agency AO or ISSO (or team) would use Artemis and Apollo to do any of the fol
 - Analyze CSO POA&Ms with respect to criticality and impact and provide specific actionable remediation steps, acceptance criteria, and automated verification tests specific to the CSO.
 - Analyze CSO/CSP incidents for impact to Agency controls and system infrastructure.
 - Create a threat model for a CSO relative to the Agency, and use that to evaluate CSP risks.
-- Generate a CSO-specific Pen Test exercise for the Agency.
-- Generate a CSO-specific Red Team Exercise for the Agency.
+- Generate a CSO-specific Pen Test exercise for the Agency or as a required test specification for the CSP.
+- Generate a CSO-specific Red Team Exercise for the Agency or as a required exercise for the CSP.
 - Analyze a Significant Change Request from the CSP.
 - Analyze a Security Impact Assessment from the CSP.
 - Analzye or generate a Business Impact Assessment for a CSP change.
