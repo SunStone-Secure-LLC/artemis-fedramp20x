@@ -49,7 +49,7 @@ The contents of this, and any materials in this repository are subject to change
       "url": "https://github.com/SunStone-Secure-LLC/artemis-fedramp20x",
       "repositoryDescription": "Public Trust Center for the SunStone Artemis FedRAMP 20x package. A private GitHub repository exists for agency Trust Center materials.",
       "authenticationRequired": false,
-      "accessRequestInstructions": "Public materials are available in this repository. For private agency Trust Center access, file a GitHub issue at https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/issues/new or email security@sunstonesecure.com with the requester's name and email address."
+      "accessRequestInstructions": "Public materials are available in this repository. For private agency Trust Center access, file a GitHub issue at https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/issues/new?template=access_request.yml or email security@sunstonesecure.com with the requester's name and email address. Issue requests are automatically rejected unless the requester email ends in sunstonesecure.com, .gov, or .mil."
     },
     "secureConfigurationGuidance": {
       "repositoryType": [
@@ -79,7 +79,7 @@ The contents of this, and any materials in this repository are subject to change
         "url": "https://github.com/SunStone-Secure-LLC/artemis-fedramp",
         "repositoryDescription": "Private FedRAMP Trust Center repository for authorized agency Trust Center materials, audit evidence, and assessment reporting artifacts.",
         "authenticationRequired": true,
-        "accessRequestInstructions": "File a GitHub issue at https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/issues/new or email security@sunstonesecure.com with the requester's name and email address."
+        "accessRequestInstructions": "File a GitHub issue at https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/issues/new?template=access_request.yml or email security@sunstonesecure.com with the requester's name and email address. Issue requests are automatically rejected unless the requester email ends in sunstonesecure.com, .gov, or .mil."
       }
     ],
     "nextOngoingCertificationReportDate": "2026-09-30"
@@ -215,7 +215,7 @@ This public repository supplies CSP and CSO summaries, KSI assessment plans, KSI
 
 This repository is the public Trust Center: [SunStone Artemis FedRAMP 20x](https://github.com/SunStone-Secure-LLC/artemis-fedramp20x).
 
-The private FedRAMP Trust Center is available at [SunStone Artemis FedRAMP](https://github.com/SunStone-Secure-LLC/artemis-fedramp) for authorized agency materials, audit evidence, and assessment reporting artifacts. To request private access, file a [GitHub issue](https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/issues/new) in this repository or email [security@sunstonesecure.com](mailto:security@sunstonesecure.com) with the requester's name and email address.
+The private FedRAMP Trust Center is available at [SunStone Artemis FedRAMP](https://github.com/SunStone-Secure-LLC/artemis-fedramp) for authorized agency materials, audit evidence, and assessment reporting artifacts. To request private access, file an [access request issue](https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/issues/new?template=access_request.yml) in this repository or email [security@sunstonesecure.com](mailto:security@sunstonesecure.com) with the requester's name and email address. Issue requests are automatically rejected unless the requester email ends in `sunstonesecure.com`, `.gov`, or `.mil`.
 
 ## Third-Party FedRAMP Resources
 
@@ -227,6 +227,97 @@ The private FedRAMP Trust Center is available at [SunStone Artemis FedRAMP](http
 | `FR1812058188` | GitHub Enterprise Cloud | Source control and GitOps automation for CSO change management and deployment workflows. |
 
 Third-party FedRAMP identifiers are sourced from the [FedRAMP Marketplace data](https://github.com/FedRAMP/marketplace-fedramp-gov-data/blob/main/data.json).
+
+## Public JSON Artifact
+
+The machine-readable FedRAMP Certification Package Overview JSON is published as a GitHub Release asset:
+
+https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/releases/download/fedramp-certification-package-overview/fedramp-certification-package-overview.json
+
+The release workflow builds this JSON from the `FEDRAMP_20X_SOURCE_OF_TRUTH_BEGIN` / `FEDRAMP_20X_SOURCE_OF_TRUTH_END` HTML comment metadata in this README and validates it against the FedRAMP Certification Package Overview schema.
+
+### Manual Download
+
+Open the release page and download `fedramp-certification-package-overview.json`:
+
+https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/releases/tag/fedramp-certification-package-overview
+
+### CLI Download
+
+Use `curl`:
+
+```bash
+curl -L \
+  -o fedramp-certification-package-overview.json \
+  https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/releases/download/fedramp-certification-package-overview/fedramp-certification-package-overview.json
+```
+
+Or use the GitHub CLI:
+
+```bash
+gh release download fedramp-certification-package-overview \
+  --repo SunStone-Secure-LLC/artemis-fedramp20x \
+  --pattern fedramp-certification-package-overview.json \
+  --clobber
+```
+
+### REST API Download
+
+Fetch the release by tag, find the asset named `fedramp-certification-package-overview.json`, then download its `browser_download_url`.
+
+```bash
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/repos/SunStone-Secure-LLC/artemis-fedramp20x/releases/tags/fedramp-certification-package-overview
+```
+
+Python example:
+
+```python
+import json
+import shutil
+import urllib.request
+
+owner = "SunStone-Secure-LLC"
+repo = "artemis-fedramp20x"
+tag = "fedramp-certification-package-overview"
+asset_name = "fedramp-certification-package-overview.json"
+
+request = urllib.request.Request(
+    f"https://api.github.com/repos/{owner}/{repo}/releases/tags/{tag}",
+    headers={
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2026-03-10",
+        "User-Agent": "fedramp-package-overview-downloader",
+    },
+)
+
+with urllib.request.urlopen(request) as response:
+    release = json.load(response)
+
+asset = next(item for item in release["assets"] if item["name"] == asset_name)
+
+download_request = urllib.request.Request(
+    asset["browser_download_url"],
+    headers={"User-Agent": "fedramp-package-overview-downloader"},
+)
+
+with urllib.request.urlopen(download_request) as response, open(asset_name, "wb") as out_file:
+    shutil.copyfileobj(response, out_file)
+
+print(f"Downloaded {asset_name}")
+```
+
+### Attestation Verification
+
+After downloading the JSON, verify its GitHub Artifact Attestation:
+
+```bash
+gh attestation verify fedramp-certification-package-overview.json \
+  --repo SunStone-Secure-LLC/artemis-fedramp20x \
+  --signer-workflow SunStone-Secure-LLC/artemis-fedramp20x/.github/workflows/publish-fedramp-certification-package-overview.yml
+```
 
 # Lightweight Summary of the Cloud Service Provider (CSP) and Cloud Service Offering (CSO)
 These can be found in CSP.md and CSO.md respectively in the root of this repository.

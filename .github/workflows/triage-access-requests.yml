@@ -1,0 +1,122 @@
+name: Triage Access Requests
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+      - reopened
+
+permissions:
+  issues: write
+
+jobs:
+  validate-email-domain:
+    name: Validate requester email domain
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Inspect access request
+        id: requester_email
+        shell: python
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+        run: |
+          import os
+          import re
+
+          body = os.environ.get("ISSUE_BODY") or ""
+          is_access_request = (
+              "### Requester email" in body
+              and "### Access need" in body
+          )
+
+          field = re.search(
+              r"(?is)^###\s+Requester email\s*(.*?)(?:^###\s+|\Z)",
+              body,
+              flags=re.MULTILINE,
+          )
+          field_text = field.group(1) if field else body
+
+          email_match = re.search(
+              r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}",
+              field_text,
+              flags=re.IGNORECASE,
+          )
+          email = email_match.group(0).lower() if email_match else ""
+          domain = email.rsplit("@", 1)[1].rstrip(".") if "@" in email else ""
+
+          allowed = (
+              domain == "sunstonesecure.com"
+              or domain.endswith(".sunstonesecure.com")
+              or domain.endswith(".gov")
+              or domain.endswith(".mil")
+          )
+
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              print(
+                  f"is_access_request={'true' if is_access_request else 'false'}",
+                  file=output,
+              )
+              print(f"email={email}", file=output)
+              print(f"domain={domain}", file=output)
+              print(f"allowed={'true' if allowed else 'false'}", file=output)
+
+      - name: Ensure triage labels exist
+        if: steps.requester_email.outputs.is_access_request == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create access-request \
+            --repo "$GITHUB_REPOSITORY" \
+            --color 1D76DB \
+            --description "Private FedRAMP Trust Center access request" \
+            --force
+          gh label create access-rejected \
+            --repo "$GITHUB_REPOSITORY" \
+            --color B60205 \
+            --description "Access request rejected by automated domain validation" \
+            --force
+          gh label create access-domain-verified \
+            --repo "$GITHUB_REPOSITORY" \
+            --color 0E8A16 \
+            --description "Requester email domain passed automated validation" \
+            --force
+
+      - name: Reject ineligible requester email domain
+        if: steps.requester_email.outputs.is_access_request == 'true' && steps.requester_email.outputs.allowed != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          REQUESTER_EMAIL: ${{ steps.requester_email.outputs.email }}
+        run: |
+          email="${REQUESTER_EMAIL:-not provided}"
+          gh issue edit "$ISSUE_NUMBER" \
+            --repo "$GITHUB_REPOSITORY" \
+            --add-label access-request
+          gh issue edit "$ISSUE_NUMBER" \
+            --repo "$GITHUB_REPOSITORY" \
+            --add-label access-rejected
+          gh issue edit "$ISSUE_NUMBER" \
+            --repo "$GITHUB_REPOSITORY" \
+            --remove-label access-domain-verified || true
+          gh issue close "$ISSUE_NUMBER" \
+            --repo "$GITHUB_REPOSITORY" \
+            --reason "not planned" \
+            --comment "This access request was automatically rejected because the requester email (${email}) is not in an allowed domain. Private FedRAMP Trust Center access requests must use an email ending in sunstonesecure.com, .gov, or .mil. Submit a new request with an eligible requester email if this was in error."
+
+      - name: Mark eligible requester email domain
+        if: steps.requester_email.outputs.is_access_request == 'true' && steps.requester_email.outputs.allowed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          gh issue edit "$ISSUE_NUMBER" \
+            --repo "$GITHUB_REPOSITORY" \
+            --add-label access-request
+          gh issue edit "$ISSUE_NUMBER" \
+            --repo "$GITHUB_REPOSITORY" \
+            --add-label access-domain-verified
+          gh issue edit "$ISSUE_NUMBER" \
+            --repo "$GITHUB_REPOSITORY" \
+            --remove-label access-rejected || true

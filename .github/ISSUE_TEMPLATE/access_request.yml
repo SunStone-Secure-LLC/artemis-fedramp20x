@@ -1,0 +1,49 @@
+name: Private FedRAMP Trust Center access request
+description: Request access to the private SunStone Artemis FedRAMP Trust Center.
+title: "Access request: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request access to the private FedRAMP Trust Center repository.
+
+        Requests are automatically rejected unless the requester email domain is `sunstonesecure.com`, `.gov`, or `.mil`.
+  - type: input
+    id: requester_name
+    attributes:
+      label: Requester name
+      description: Full name of the person requesting access.
+      placeholder: Jane Doe
+    validations:
+      required: true
+  - type: input
+    id: requester_email
+    attributes:
+      label: Requester email
+      description: Must end in `sunstonesecure.com`, `.gov`, or `.mil`.
+      placeholder: jane.doe@example.gov
+    validations:
+      required: true
+  - type: input
+    id: organization
+    attributes:
+      label: Organization
+      description: Agency, organization, or SunStone team associated with the request.
+      placeholder: Example Agency
+    validations:
+      required: true
+  - type: textarea
+    id: access_need
+    attributes:
+      label: Access need
+      description: Briefly describe why private Trust Center access is needed.
+      placeholder: Describe the authorization, assessment, procurement, or operational need.
+    validations:
+      required: true
+  - type: checkboxes
+    id: acknowledgment
+    attributes:
+      label: Acknowledgment
+      options:
+        - label: I understand that private Trust Center access is limited to authorized requesters and may require additional verification.
+          required: true
