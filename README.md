@@ -121,10 +121,7 @@ The contents of this, and any materials in this repository are subject to change
         "Security Impact Assessment analysis",
         "Business Impact Assessment analysis or generation",
         "Deviation Request analysis",
-        "NIST 800-53 policy, procedure, and plan content support",
-        "AWS-native CSO delivery services",
-        "FedRAMP ATO'd DAST scanner",
-        "GitHub Enterprise"
+        "NIST 800-53 policy, procedure, and plan content support"
       ]
     }
   ],
@@ -203,7 +200,6 @@ Customers must use SAML or OIDC federated login. Digital identity requirements t
 | Service | Date Available | Security Category |
 | --- | --- | --- |
 | Artemis API Service | August 1, 2026 | FIPS 199: Confidentiality Moderate, Integrity Moderate, Availability Moderate |
-
 
 ## Secure Configuration Guidance
 
