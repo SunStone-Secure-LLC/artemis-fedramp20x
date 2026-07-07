@@ -280,6 +280,7 @@ Python example:
 
 ```python
 import json
+import shutil
 import urllib.request
 
 owner = "SunStone-Secure-LLC"
@@ -301,7 +302,14 @@ with urllib.request.urlopen(request) as response:
 
 asset = next(item for item in release["assets"] if item["name"] == asset_name)
 
-urllib.request.urlretrieve(asset["browser_download_url"], asset_name)
+download_request = urllib.request.Request(
+    asset["browser_download_url"],
+    headers={"User-Agent": "fedramp-package-overview-downloader"},
+)
+
+with urllib.request.urlopen(download_request) as response, open(asset_name, "wb") as out_file:
+    shutil.copyfileobj(response, out_file)
+
 print(f"Downloaded {asset_name}")
 ```
 
