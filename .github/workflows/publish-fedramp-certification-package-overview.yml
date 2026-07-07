@@ -1,0 +1,107 @@
+name: Publish FedRAMP Certification Package Overview
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - README.md
+      - SECURE_CONFIGURATION_GUIDE.md
+      - scripts/build_fedramp_certification_package_overview.py
+      - .github/workflows/publish-fedramp-certification-package-overview.yml
+  workflow_dispatch:
+
+permissions:
+  attestations: write
+  contents: write
+  id-token: write
+
+env:
+  PACKAGE_JSON: dist/fedramp-certification-package-overview.json
+  PUBLIC_ASSET_URL: https://github.com/${{ github.repository }}/releases/download/fedramp-certification-package-overview/fedramp-certification-package-overview.json
+  RELEASE_TAG: fedramp-certification-package-overview
+  RELEASE_TITLE: FedRAMP Certification Package Overview
+  SCHEMA_URL: https://www.fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json
+
+jobs:
+  publish:
+    name: Build, validate, attest, and publish JSON
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+
+      - name: Build package overview JSON
+        run: python scripts/build_fedramp_certification_package_overview.py --output "$PACKAGE_JSON"
+
+      - name: Install JSON Schema validator
+        run: python -m pip install --disable-pip-version-check jsonschema
+
+      - name: Validate JSON against FedRAMP schema
+        shell: python
+        run: |
+          import json
+          import os
+          import sys
+          import urllib.request
+          from pathlib import Path
+
+          from jsonschema import FormatChecker, validators
+
+          schema_url = os.environ["SCHEMA_URL"]
+          json_path = Path(os.environ["PACKAGE_JSON"])
+
+          with urllib.request.urlopen(schema_url) as response:
+              schema = json.load(response)
+
+          data = json.loads(json_path.read_text(encoding="utf-8"))
+          Validator = validators.validator_for(schema)
+          Validator.check_schema(schema)
+          validator = Validator(schema, format_checker=FormatChecker())
+          errors = sorted(validator.iter_errors(data), key=lambda error: error.json_path)
+
+          if errors:
+              for error in errors:
+                  print(f"{error.json_path}: {error.message}", file=sys.stderr)
+              raise SystemExit(1)
+
+      - name: Generate artifact attestation
+        uses: actions/attest@v4
+        with:
+          subject-path: ${{ env.PACKAGE_JSON }}
+
+      - name: Publish public release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          notes="Public FedRAMP Certification Package Overview JSON validated against ${SCHEMA_URL}."
+
+          if gh release view "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release edit "$RELEASE_TAG" \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "$RELEASE_TITLE" \
+              --notes "$notes"
+            gh release upload "$RELEASE_TAG" "$PACKAGE_JSON" \
+              --repo "$GITHUB_REPOSITORY" \
+              --clobber
+          else
+            gh release create "$RELEASE_TAG" "$PACKAGE_JSON" \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "$RELEASE_TITLE" \
+              --notes "$notes"
+          fi
+
+      - name: Add public download URL to job summary
+        run: |
+          {
+            echo "FedRAMP Certification Package Overview JSON published:"
+            echo "$PUBLIC_ASSET_URL"
+          } >> "$GITHUB_STEP_SUMMARY"

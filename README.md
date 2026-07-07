@@ -2,6 +2,236 @@
 This is the _DRAFT_ FedRAMP 20x Package for the SunStone Artemis™ Platform. 
 The contents of this, and any materials in this repository are subject to change until this DRAFT notice is removed.
 
+<!-- FEDRAMP_20X_SOURCE_OF_TRUTH_BEGIN
+{
+  "$schema": "https://fedramp.gov/schemas/fedramp-certification-package-overview-schema-2026-06-24.json",
+  "sourceDocuments": [
+    "README.md",
+    "CSP.md",
+    "CSO.md",
+    "SECURE_CONFIGURATION_GUIDE.md"
+  ],
+  "serviceIdentification": {
+    "fedRampPackageId": "XX-XXXXXXXX",
+    "ueiNumber": "KLL2SDMGF7W9",
+    "providerName": "SunStone Secure, LLC",
+    "serviceName": "SunStone Artemis Platform",
+    "serviceAcronym": "Artemis",
+    "serviceDescription": "SunStone Artemis Platform is SunStone's Federal Platform running on AWS GovCloud and Commercial AWS. The Apollo Digital Twin Engine can ingest and process OSCAL 1.1.3 models, prototype and extension models, markdown, and other document content to support agency AO and ISSO analysis workflows for CSO inventory, data flows, POA&Ms, incidents, threat models, testing exercises, change artifacts, impact assessments, deviation requests, and NIST 800-53 documentation.",
+    "certificationType": "20x",
+    "website": "https://sunstonesecure.com/platform",
+    "logo": "https://sunstonesecure.com/assets/sunstone-logo-dark-DlKpnxzK.svg"
+  },
+  "serviceProperties": {
+    "serviceType": [
+      "SaaS"
+    ],
+    "deploymentModel": "Hybrid Cloud",
+    "deploymentModelComponents": [
+      "Public Cloud",
+      "Government-Only Cloud"
+    ],
+    "businessCategory": [
+      "Governance, Risk, and Compliance (GRC)",
+      "Cybersecurity & Risk Management"
+    ],
+    "digitalIdentityLevel": {
+      "identityAssuranceLevel": "IAL2",
+      "authenticatorAssuranceLevel": "AAL2",
+      "federationAssuranceLevel": "FAL2",
+      "requirement": "Authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines at IAL2, AAL2, and FAL2.",
+      "reference": "https://pages.nist.gov/800-63-3/"
+    },
+    "trustCenter": {
+      "repositoryType": [
+        "Trust Center"
+      ],
+      "url": "https://github.com/SunStone-Secure-LLC/artemis-fedramp20x",
+      "repositoryDescription": "Public Trust Center for the SunStone Artemis FedRAMP 20x package. A private GitHub repository exists for agency Trust Center materials.",
+      "authenticationRequired": false,
+      "accessRequestInstructions": "Public materials are available in this repository. For private agency Trust Center access, file a GitHub issue at https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/issues/new or email security@sunstonesecure.com with the requester's name and email address."
+    },
+    "secureConfigurationGuidance": {
+      "repositoryType": [
+        "Secure Configuration Guidance"
+      ],
+      "url": "https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/blob/main/SECURE_CONFIGURATION_GUIDE.md",
+      "repositoryDescription": "Placeholder for the Artemis Secure Configuration Guide. The final guide will be published later via a repository release artifact.",
+      "authenticationRequired": false
+    },
+    "additionalRepositories": [
+      {
+        "repositoryType": [
+          "Assessment Plans",
+          "Assessment Results",
+          "Supporting Artifacts"
+        ],
+        "url": "https://github.com/SunStone-Secure-LLC/artemis-fedramp20x",
+        "repositoryDescription": "Public repository containing CSP and CSO summaries, KSI assessment plans, KSI assessment results, KSI summaries, OSCAL catalogs, and pro forma 3PAO assessment plans.",
+        "authenticationRequired": false
+      },
+      {
+        "repositoryType": [
+          "Private FedRAMP Trust Center",
+          "Audit Evidence",
+          "Assessment Reports"
+        ],
+        "url": "https://github.com/SunStone-Secure-LLC/artemis-fedramp",
+        "repositoryDescription": "Private FedRAMP Trust Center repository for authorized agency Trust Center materials, audit evidence, and assessment reporting artifacts.",
+        "authenticationRequired": true,
+        "accessRequestInstructions": "File a GitHub issue at https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/issues/new or email security@sunstonesecure.com with the requester's name and email address."
+      }
+    ],
+    "nextOngoingCertificationReportDate": "2026-09-30"
+  },
+  "contactInformation": [
+    {
+      "contactType": "Sales",
+      "contactEmail": "info@sunstonesecure.com"
+    },
+    {
+      "contactType": "Security",
+      "contactEmail": "security@sunstonesecure.com"
+    }
+  ],
+  "assessor": {
+    "name": "PENDING",
+    "id": "PENDING"
+  },
+  "certifiedServices": [
+    {
+      "serviceName": "Artemis API Service",
+      "serviceDescription": "Artemis API Service. FIPS-199 security category: Confidentiality Moderate, Integrity Moderate, Availability Moderate. Supporting capabilities include OSCAL model ingestion and processing; markdown and document content ingestion; CSO inventory and data-flow analysis; POA&M analysis and remediation guidance; CSO/CSP incident impact analysis; CSO threat model generation; CSO-specific penetration test and red team exercise generation; Significant Change Request, Security Impact Assessment, Business Impact Assessment, and Deviation Request analysis; NIST 800-53 policy/procedure/plan content support; AWS-native delivery services; FedRAMP ATO'd DAST scanner; and GitHub Enterprise GitOps automation.",
+      "dateAvailable": "2026-08-01",
+      "fips199SecurityCategory": {
+        "confidentiality": "Moderate",
+        "integrity": "Moderate",
+        "availability": "Moderate"
+      },
+      "supportingCapabilities": [
+        "OSCAL model ingestion and processing",
+        "Markdown and document content ingestion",
+        "CSO inventory and data-flow analysis",
+        "CSO POA&M analysis and remediation guidance",
+        "CSO/CSP incident impact analysis",
+        "CSO threat model generation",
+        "CSO-specific penetration test exercise generation",
+        "CSO-specific red team exercise generation",
+        "Significant Change Request analysis",
+        "Security Impact Assessment analysis",
+        "Business Impact Assessment analysis or generation",
+        "Deviation Request analysis",
+        "NIST 800-53 policy, procedure, and plan content support",
+        "AWS-native CSO delivery services",
+        "FedRAMP ATO'd DAST scanner",
+        "GitHub Enterprise"
+      ]
+    }
+  ],
+  "thirdPartyInformationResources": {
+    "certified": [
+      {
+        "fedRampCertifiedThirdPartyInformationResource": "AGENCYAMAZONEW",
+        "useCase": "AWS US East/West provides the Commercial AWS environment and AWS-native services used to deliver the CSO."
+      },
+      {
+        "fedRampCertifiedThirdPartyInformationResource": "F1603047866",
+        "useCase": "AWS GovCloud provides the government cloud environment and AWS-native services used to deliver the CSO."
+      },
+      {
+        "fedRampCertifiedThirdPartyInformationResource": "F1206081364",
+        "useCase": "Google Workspace provides FedRAMP-authorized workspace services for CSP staff support and business communications related to the CSO."
+      },
+      {
+        "fedRampCertifiedThirdPartyInformationResource": "FR1812058188",
+        "useCase": "GitHub Enterprise Cloud provides source control and GitOps automation used for CSO change management and deployment workflows."
+      }
+    ]
+  },
+  "providerDocumentationOverview": "The public repository provides CSP and CSO summaries, KSI assessment plans, KSI assessment results, KSI summaries, OSCAL catalogs, and pro forma 3PAO assessment plans. The provider intends to supply continuously generated, machine-readable public supporting evidence, digitally signed KSI SAR artifacts, and summary 3PAO SAR information. Underlying raw audit evidence and the 3PAO test case workbook are limited to a private repository for the 3PAO, CSO customers, agency customers, and other authorized users.",
+  "sourceMapping": {
+    "deploymentModel": "CSO.md states that Artemis runs on AWS GovCloud and Commercial AWS. The FedRAMP schema defines deploymentModel as a single string enum, so the schema-valid value is Hybrid Cloud. deploymentModelComponents records the two underlying environments as Public Cloud and Government-Only Cloud.",
+    "businessCategory": "Mapped from the FedRAMP schema enum based on CSO.md GRC, authorization, risk, and security-analysis workflows.",
+    "digitalIdentityLevel": "Provider-supplied requirement: authenticators must be compliant with NIST SP 800-63-3 Digital Identity Guidelines at IAL2, AAL2, and FAL2.",
+    "thirdPartyInformationResources": "FedRAMP certified third-party information resources are sourced from https://github.com/FedRAMP/marketplace-fedramp-gov-data/blob/main/data.json. Selected records: AGENCYAMAZONEW (Amazon AWS US East/West), F1603047866 (Amazon AWS GovCloud), F1206081364 (Google Workspace), and FR1812058188 (GitHub Enterprise Cloud).",
+    "secureConfigurationGuidance": "SECURE_CONFIGURATION_GUIDE.md is a placeholder for the Artemis-specific guide. CSO.md also references AWS Security Reference Architecture and AWS Well-Architected Framework guidance.",
+    "trustCenter": "This public repository is the public Trust Center. Private agency Trust Center access is available through https://github.com/SunStone-Secure-LLC/artemis-fedramp by request.",
+    "providerDocumentationOverview": "README.md sections on validation evidence, supporting artifacts, 3PAO review, continuous reporting, prototype reporting, and submission."
+  },
+  "externalReferences": {
+    "awsSecurityReferenceArchitecture": {
+      "url": "https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html"
+    },
+    "awsWellArchitectedFramework": {
+      "url": "https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html"
+    },
+    "nistSp800633DigitalIdentityGuidelines": {
+      "url": "https://pages.nist.gov/800-63-3/"
+    },
+    "fedRampMarketplaceData": {
+      "url": "https://github.com/FedRAMP/marketplace-fedramp-gov-data/blob/main/data.json"
+    }
+  },
+  "missingInformationRequested": []
+}
+FEDRAMP_20X_SOURCE_OF_TRUTH_END -->
+
+# FedRAMP 20x Public Certification Data
+
+| Field | Value |
+| --- | --- |
+| FedRAMP ID | XX-XXXXXXXX |
+| Service Model | SaaS |
+| Deployment Model | Public Cloud and Government-Only Cloud components; represented in the FedRAMP schema as Hybrid Cloud. |
+| Business Category | Governance, Risk, and Compliance (GRC); Cybersecurity & Risk Management |
+| UEI Number | KLL2SDMGF7W9 |
+| Sales Contact Information | [info@sunstonesecure.com](mailto:info@sunstonesecure.com) |
+| Security Contact Information | [security@sunstonesecure.com](mailto:security@sunstonesecure.com) |
+| Product Website Link | [SunStone Artemis Platform](https://sunstonesecure.com/platform) |
+| Link to Product Logo | [SunStone logo](https://sunstonesecure.com/assets/sunstone-logo-dark-DlKpnxzK.svg) |
+| Next Ongoing Certification Report date | September 30, 2026 |
+| Current FedRAMP Recognized independent assessment service | PENDING |
+
+## Overall Service Description
+
+SunStone Artemis Platform is SunStone's Federal Platform running on AWS GovCloud and Commercial AWS. The Apollo Digital Twin Engine ingests and processes OSCAL 1.1.3 models, prototype and extension models, markdown, and other document content to support agency AO and ISSO workflows for CSO inventory, data-flow analysis, POA&M review, incident impact analysis, threat modeling, testing exercises, change review, impact assessments, deviation analysis, and NIST 800-53 documentation.
+
+Customers must use SAML or OIDC federated login. Digital identity requirements target IAL2, AAL2, and FAL2 under [NIST SP 800-63-3 Digital Identity Guidelines](https://pages.nist.gov/800-63-3/).
+
+## Specific Services and Security Categories (CDS-CSO-SVC)
+
+| Service | Date Available | Security Category |
+| --- | --- | --- |
+| Artemis API Service | August 1, 2026 | FIPS 199: Confidentiality Moderate, Integrity Moderate, Availability Moderate |
+
+
+## Secure Configuration Guidance
+
+The Artemis Secure Configuration Guide placeholder is available at [SECURE_CONFIGURATION_GUIDE.md](SECURE_CONFIGURATION_GUIDE.md). The final guide will be published later via a repository release artifact.
+
+The CSO is deployed using a FedRAMP High Baseline implementation of the [AWS Security Reference Architecture](https://docs.aws.amazon.com/prescriptive-guidance/latest/security-reference-architecture/welcome.html) and controls recommended by the [AWS Well-Architected Framework](https://docs.aws.amazon.com/wellarchitected/latest/framework/welcome.html).
+
+## Provider Documentation Overview
+
+This public repository supplies CSP and CSO summaries, KSI assessment plans, KSI assessment results, KSI summaries, OSCAL catalogs, and pro forma 3PAO assessment plans. SunStone intends to provide continuously generated, machine-readable public supporting evidence, digitally signed KSI SAR artifacts, and summary 3PAO SAR information. Underlying raw audit evidence and the 3PAO test case workbook are limited to a private repository for authorized 3PAOs, CSO customers, agency customers, and other authorized users.
+
+## Trust Center Access
+
+This repository is the public Trust Center: [SunStone Artemis FedRAMP 20x](https://github.com/SunStone-Secure-LLC/artemis-fedramp20x).
+
+The private FedRAMP Trust Center is available at [SunStone Artemis FedRAMP](https://github.com/SunStone-Secure-LLC/artemis-fedramp) for authorized agency materials, audit evidence, and assessment reporting artifacts. To request private access, file a [GitHub issue](https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/issues/new) in this repository or email [security@sunstonesecure.com](mailto:security@sunstonesecure.com) with the requester's name and email address.
+
+## Third-Party FedRAMP Resources
+
+| FedRAMP ID | Resource | Use Case |
+| --- | --- | --- |
+| `AGENCYAMAZONEW` | AWS US East/West | Commercial AWS environment and AWS-native services used to deliver the CSO. |
+| `F1603047866` | AWS GovCloud | Government cloud environment and AWS-native services used to deliver the CSO. |
+| `F1206081364` | Google Workspace | FedRAMP-authorized workspace services for CSP staff support and business communications related to the CSO. |
+| `FR1812058188` | GitHub Enterprise Cloud | Source control and GitOps automation for CSO change management and deployment workflows. |
+
+Third-party FedRAMP identifiers are sourced from the [FedRAMP Marketplace data](https://github.com/FedRAMP/marketplace-fedramp-gov-data/blob/main/data.json).
+
 # Lightweight Summary of the Cloud Service Provider (CSP) and Cloud Service Offering (CSO)
 These can be found in CSP.md and CSO.md respectively in the root of this repository.
 
