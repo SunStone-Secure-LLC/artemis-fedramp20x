@@ -15,12 +15,12 @@ END_MARKER = "\nFEDRAMP_20X_SOURCE_OF_TRUTH_END -->"
 def extract_package_overview(readme_path: Path) -> dict:
     text = readme_path.read_text(encoding="utf-8")
 
-    try:
-        payload = text.split(START_MARKER, 1)[1].split(END_MARKER, 1)[0]
-    except IndexError as exc:
+    if START_MARKER not in text or END_MARKER not in text:
         raise SystemExit(
             f"Could not find FedRAMP source-of-truth markers in {readme_path}"
-        ) from exc
+        )
+
+    payload = text.split(START_MARKER, 1)[1].split(END_MARKER, 1)[0]
 
     try:
         data = json.loads(payload)
