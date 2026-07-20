@@ -95,8 +95,8 @@ The contents of this, and any materials in this repository are subject to change
     }
   ],
   "assessor": {
-    "name": "PENDING",
-    "id": "PENDING"
+    "name": "ACME 3PAO Inc.",
+    "assessorID": "000000"
   },
   "certifiedServices": [
     {
@@ -187,7 +187,7 @@ FEDRAMP_20X_SOURCE_OF_TRUTH_END -->
 | Product Website Link | [SunStone Artemis Platform](https://sunstonesecure.com/platform) |
 | Link to Product Logo | [SunStone logo](https://sunstonesecure.com/assets/sunstone-logo-dark-DlKpnxzK.svg) |
 | Next Ongoing Certification Report date | September 30, 2026 |
-| Current FedRAMP Recognized independent assessment service | PENDING |
+| Current FedRAMP Recognized independent assessment service | ACME 3PAO Inc. (placeholder; assessor ID `000000`) |
 
 ## Overall Service Description
 
