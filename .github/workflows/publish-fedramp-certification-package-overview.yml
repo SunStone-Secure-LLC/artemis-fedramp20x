@@ -18,6 +18,7 @@ permissions:
 
 env:
   PACKAGE_JSON: dist/fedramp-certification-package-overview.json
+  PAGES_ASSET_URL: https://sunstone-secure-llc.github.io/artemis-fedramp20x/fedramp-certification-package-overview.json
   PUBLIC_ASSET_URL: https://github.com/${{ github.repository }}/releases/download/fedramp-certification-package-overview/fedramp-certification-package-overview.json
   RELEASE_TAG: fedramp-certification-package-overview
   RELEASE_TITLE: FedRAMP Certification Package Overview
@@ -102,6 +103,56 @@ jobs:
       - name: Add public download URL to job summary
         run: |
           {
-            echo "FedRAMP Certification Package Overview JSON published:"
+            echo "FedRAMP Certification Package Overview release asset published:"
             echo "$PUBLIC_ASSET_URL"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  deploy-pages:
+    name: Deploy released JSON to GitHub Pages
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      pages: write
+    concurrency:
+      group: github-pages
+      cancel-in-progress: true
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Download release asset into site directory
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p _site
+          gh release download "$RELEASE_TAG" \
+            --repo "$GITHUB_REPOSITORY" \
+            --pattern 'fedramp-certification-package-overview.json' \
+            --dir _site
+
+      - name: Validate downloaded JSON
+        run: jq empty _site/fedramp-certification-package-overview.json
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Add GitHub Pages URL to job summary
+        run: |
+          {
+            echo "FedRAMP Certification Package Overview JSON deployed to GitHub Pages:"
+            echo "$PAGES_ASSET_URL"
           } >> "$GITHUB_STEP_SUMMARY"

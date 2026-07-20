@@ -230,7 +230,11 @@ Third-party FedRAMP identifiers are sourced from the [FedRAMP Marketplace data](
 
 ## Public JSON Artifact
 
-The machine-readable FedRAMP Certification Package Overview JSON is published as a GitHub Release asset:
+The machine-readable FedRAMP Certification Package Overview JSON is published to GitHub Pages:
+
+https://sunstone-secure-llc.github.io/artemis-fedramp20x/fedramp-certification-package-overview.json
+
+The same file is also published under a stable name as a GitHub Release asset:
 
 https://github.com/SunStone-Secure-LLC/artemis-fedramp20x/releases/download/fedramp-certification-package-overview/fedramp-certification-package-overview.json
 
