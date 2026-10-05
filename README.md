@@ -323,6 +323,16 @@ gh attestation verify fedramp-certification-package-overview.json \
   --signer-workflow SunStone-Secure-LLC/artemis-fedramp20x/.github/workflows/publish-fedramp-certification-package-overview.yml
 ```
 
+### Schema Change Watch
+
+The `Watch FedRAMP Schema CHANGELOG` workflow runs daily. It reads the [FedRAMP schemas CHANGELOG](https://github.com/FedRAMP/schemas/blob/main/CHANGELOG.md) and files a GitHub issue (label `fedramp-schema-watch`, assigned to `sunstonesecure-robert`) for every new entry that affects a `fedramp-certification-package-overview-schema*` file. That covers both new versions of the schema file this repository validates against today and any dated successor file FedRAMP releases later.
+
+Each issue carries the CHANGELOG text and links to the schema. For a new version of the current file, re-run the **Publish FedRAMP Certification Package Overview** workflow to validate the JSON against it. For a different (successor) file, update `SCHEMA_URL` in the publish workflow and the `$schema` value in the source-of-truth metadata above first; the issue says which. The watch reads the schema file currently validated against from `SCHEMA_URL`, so that is the only place it needs to change.
+
+The check is idempotent (an entry already recorded in any open or closed issue is not filed again), and it can be exercised without filing issues via `workflow_dispatch` with `dry_run` enabled. The run fails, rather than staying silent, if the CHANGELOG format changes so that entries for a watched schema can no longer be parsed.
+
+The script's unit tests and Gherkin acceptance tests run in the `Test FedRAMP Schema Watch` workflow; locally: `python -m unittest discover -s tests` and `pip install behave && behave tests/features`.
+
 # Lightweight Summary of the Cloud Service Provider (CSP) and Cloud Service Offering (CSO)
 These can be found in CSP.md and CSO.md respectively in the root of this repository.
 
